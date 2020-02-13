@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.15/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <title>Welcome to HIV/AID</title>
 </head>
 <body>
-
-    <script src="js/main.js"></script>
+    <main id="app">
+        <div>
+            <router-link to="/">Home</router-link>
+            <router-link to="/contact">Contact</router-link>
+        </div>
+    </main>
+    <script src="js/main.js" type="module"></script>
 </body>
 </html>
