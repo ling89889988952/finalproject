@@ -1,9 +1,52 @@
 // default setting
+body {
+    width: 100%;
+    margin: 0 auto;
+}
 
+header {
+    background: #e9b600;
+}
+
+#mainHeader {
+    display: flex;
+    flex-direction: row;
+    width: 84%;
+    margin: 0 8% 0 8%;
+    border-bottom: solid 3px #000;
+    background: #e9b600;
+}
+
+#logo {
+    width: 20%;
+}
+
+#mainNav {
+    width: 80%;
+    ul{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        li {
+            list-style: none;
+            width: 20%;
+            text-align: center;
+            a {
+                text-decoration: none;
+                color: #000;
+                font-family: myriad-pro, sans-serif;
+                font-weight: 500;
+                font-style: normal;
+                text-align: center;
+            }
+        }
+
+    }
+}
 
 // import
 @import 'modules/_index.scss';
 @import 'modules/_hiv.scss';
-@import 'modules/_guide.scss';
-@import 'modules/_about.scss';
+@import 'modules/_discrimination.scss';
+@import 'modules/_prevention.scss';
 @import 'modules/_contact.scss';
