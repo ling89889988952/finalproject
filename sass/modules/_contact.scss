@@ -1,14 +1,50 @@
 // contact page style
 #contact {
     width: 100%;
-    height: 720px;
+    height: 27.8%;
 }
 
 #contactTitle {
     height: 60%;
+    display: flex;
+    flex-direction: row;
+}
+
+#contactSub{
+    height: 100%;
+    width: 50%;
+    background: #e9b600;
+}
+
+#contactForm {
+    height: 100%;
+    width: 50%;
 }
 
 #contactDetail {
+    margin-top: -0px;
     height:40%;
     background: #363636;
+}
+
+#germs {
+    width: 100%;
+    height: 300px;
+    // opacity: 50%;
+    // background: #000;
+    margin-top: -300px;
+}
+
+#germ1 {
+    margin-top: 20px;
+}
+
+#germ2 {
+    margin-left: 27.5%;
+    margin-top: 120px;
+}
+
+#germ3 {
+    margin-top: 150px;
+    float: right;
 }
