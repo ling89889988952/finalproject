@@ -5,11 +5,11 @@
         <div id="logo"></div>
         <nav id="mainNav">
             <ul>
-                <li><a href="#index">HOME</a></li>
-                <li><a href="#HIV">HIV/AIDS</li>
-                <li><a href="/finalproject/#discrimination">0 DISCRIMINATION</a></li>
-                <li><a href="#prevention">PREVENTION</a></li>
-                <li><a href="#contact">CONTACT</a></li>
+                <li><a href="./index.html">HOME</a></li>
+                <li><a href="./index.html #HIV">HIV/AIDS</li>
+                <li><a href="./index.html">0 DISCRIMINATION</a></li>
+                <li><a href="./index.html">PREVENTION</a></li>
+                <li><a href="./index.html">CONTACT</a></li>
             </ul>
         </nav>
         <div class="backgroundFill"></div>
