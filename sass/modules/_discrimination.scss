@@ -10,11 +10,20 @@
     width: 50%;
     height: 100%;
     background: #65b12e;
-    text-align: center;
+    position: relative;
     img {
-        width: 60%;
-        margin-top: 20%;
-        margin-bottom: 20%;
+        width: 40%;
+        position:absolute;
+	    top:0;
+	    bottom:0;
+	    left:0;
+	    right:0;
+	    margin:auto;
         
     }
+}
+
+#discriminationSub {
+    width: 50%;
+    position: relative;
 }

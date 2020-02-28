@@ -10,17 +10,22 @@
 #preventionSub {
     width: 50%;
     height: 100%;
+    position: relative;
 }
 
 #condom {
     width: 50%;
     height: 100%;
     background: #05a1bf;
-    text-align: center;
+    position: relative;
     img {
-        width: 50%;
-        margin-top: 15%;
-        margin-bottom: 15%;
+        width: 40%;
+        position:absolute;
+	    top:0;
+	    bottom:0;
+	    left:0;
+	    right:0;
+	    margin:auto;
         
     }
 }
