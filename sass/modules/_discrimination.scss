@@ -1,0 +1,29 @@
+// 0 discrimination page style
+#discrimination {
+    width: 100%;
+    // height: 720px;
+    display: flex;
+    flex-direction: row;
+}
+
+#heart {
+    width: 50%;
+    height: 100%;
+    background: #65b12e;
+    position: relative;
+    img {
+        width: 40%;
+        position:absolute;
+	    top:0;
+	    bottom:0;
+	    left:0;
+	    right:0;
+	    margin:auto;
+        
+    }
+}
+
+#discriminationSub {
+    width: 50%;
+    position: relative;
+}

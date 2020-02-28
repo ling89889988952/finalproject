@@ -1,1 +1,94 @@
 // HIV/AID page style
+#HIV {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    // height: 720px;
+}
+
+.HIVsub {
+    width: 50%;
+    position: relative;
+}
+
+#hiv {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+}
+
+#hivIntro {
+    float: left;
+    width: 50%;
+    height: 100%;
+    background: #ea530d;
+    color: #fff;
+}
+
+.intro {
+    display: flex;
+    align-items: center;
+    div {
+        width: 80%;
+        margin: 0 auto;
+        p {
+            font-size: 1em;
+            text-align: center;
+            font-family: superclarendon, serif;
+            font-style: normal;
+            font-weight: 300;
+        }
+    }
+    
+}
+
+#hivPic {
+    width: 50%;
+    height: 100%;
+    background: #67b32f;
+    // text-align: center;
+    position:relative;
+    
+    img {
+        width: 40%;
+        position:absolute;
+	    top:0;
+	    bottom:0;
+	    left:0;
+	    right:0;
+	    margin:auto;
+    }
+    
+}
+
+#aids {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+}
+
+#aidsPic {
+    width: 50%;
+    height: 100%;
+    background: #05a1bf;
+    position:relative;
+    img {
+        width: 40%;
+        position:absolute;
+	    top:0;
+	    bottom:0;
+	    left:0;
+	    right:0;
+	    margin:auto;
+        
+    }
+}
+
+#aidsIntro {
+    float: right;
+    width: 50%;
+    height: 100%;
+    background: #eab600;
+}

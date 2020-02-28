@@ -1,9 +1,103 @@
 // default setting
+html {
+    height: 570%;
+}
 
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
 
+header {
+    height: 2%;
+    background: #e9b600;
+}
+
+#mainHeader {
+    display: flex;
+    flex-direction: row;
+    width: 84%;
+    margin: 0 8% 0 8%;
+    border-bottom: solid 3px #000;
+    background: #e9b600;
+}
+
+#logo {
+    width: 20%;
+}
+
+#mainNav {
+    width: 80%;
+    ul{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        li {
+            list-style: none;
+            width: 20%;
+            text-align: center;
+            a {
+                text-decoration: none;
+                color: #000;
+                font-family: myriad-pro, sans-serif;
+                font-weight: 500;
+                font-style: normal;
+                text-align: center;
+                transition: .5s ease;
+            }
+        }
+        a:hover {
+            color: #fff;
+        }
+
+    }
+}
+
+.subContainer {
+    height: 17.55%;
+}
+
+.textInfo {
+        width: 60%;
+        height: 80%;
+        position:absolute;
+	    top:0;
+	    bottom:0;
+	    left:0;
+	    right:0;
+        margin:auto;
+        font-family: superclarendon, serif;
+        font-style: normal;
+        
+    h2 {
+        text-align: center;
+        line-height: 200%;
+        font-weight: 600;
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1.5em;
+        line-height: 150%;
+        font-weight: 400;
+    }
+
+    .readmore {
+        text-align: center;
+        margin-top: 30%;
+        a {
+            padding: 2% 8% 2% 8%;
+            border: solid 2px #e9b600;
+            text-decoration: none;
+            color: #e9b600;
+            font-weight: 400;
+        }
+    }
+}
 // import
 @import 'modules/_index.scss';
 @import 'modules/_hiv.scss';
-@import 'modules/_guide.scss';
-@import 'modules/_about.scss';
+@import 'modules/_discrimination.scss';
+@import 'modules/_prevention.scss';
 @import 'modules/_contact.scss';
