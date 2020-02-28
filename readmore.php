@@ -22,13 +22,23 @@ $detailData = getReadData($pdo);
         echo '<div id="readmoreBody">'.
         '<div id="readmoreTitle">'.
                 '<h2>'.$detail['readmore_title'].'</h2>'.
+                '<div id="titlePic">'.
+                    '<img id="img1" src="images/superman.png">'.
+                '</div>'.
              '</div>'.
              '<div id="readmoreContent">'.
+             '<div id="drugs">'.
+                '<img id="img2" src="images/drug.png">'.
+            '</div>'.
+            '<div id="lady">'.
+                '<img id="img3" src="images/lady.png">'.
+            '</div>'.
+            
              '<div class="readmoreContent">' .
                 '<h3>'.$detail['header'].'</h3>'.
                 '<p>'.$detail['description'].'</p>'.
              '</div>'.
-             '<br>'.
+            
              '<div class="readmoreContent">' .
                 '<h3>'.$detail['sub_header'].'</h3>'.
                 '<p>'.$detail['sub_description'].'</p>'.
