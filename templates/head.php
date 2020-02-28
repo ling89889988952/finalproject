@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.15/dist/vue.js"></script>
-    <title>About - HIV/AID</title>
+    <title>HIV</title>
 </head>
 <body>
-
-    <script src="js/main.js"></script>
+    
 </body>
 </html>
