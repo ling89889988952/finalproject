@@ -1,19 +1,17 @@
 <header>
     <h1 class="hidden"> Hiv Header</h1>
-    <div>
-        <div>
-            <h2 class="hidden">Logo</h2>
-            <img src="images/<?php echo $row['logo_cover'];?>" alt="<?php echo $row['logo_title'];?>">
-        </div>
-        <nav>
-            <h2 class="hidden">Navigation</h2>
+    <div id="mainHeader">
+        <div class="backgroundFill"></div>
+        <div id="logo"></div>
+        <nav id="mainNav">
             <ul>
-                <li><a href="index.php">home</a></li>
-                <li><a href="#hiv_page">hiv/adis</a></li>
-                <li><a href="#discrimination_page">0 discrimination</a></li>
-                <li><a href="#prevention">prevention</a></li>
-                <li><a href="#contact">contact</a></li>
+                <li><a href="#index">HOME</a></li>
+                <li><a href="#HIV">HIV/AIDS</li>
+                <li><a href="/finalproject/#discrimination">0 DISCRIMINATION</a></li>
+                <li><a href="#prevention">PREVENTION</a></li>
+                <li><a href="#contact">CONTACT</a></li>
             </ul>
         </nav>
+        <div class="backgroundFill"></div>
     </div>
 </header>

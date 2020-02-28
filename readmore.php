@@ -19,18 +19,21 @@ $detailData = getReadData($pdo);
 ?>
 
 <?php foreach ($detailData as $detail) {
-        echo '<div>' .
+        echo '<div id="readmoreBody">'.
+        '<div id="readmoreTitle">'.
                 '<h2>'.$detail['readmore_title'].'</h2>'.
-             '</div'.
-             '<div>' .
+             '</div>'.
+             '<div id="readmoreContent">'.
+             '<div class="readmoreContent">' .
                 '<h3>'.$detail['header'].'</h3>'.
                 '<p>'.$detail['description'].'</p>'.
-             '</div'.
+             '</div>'.
              '<br>'.
-             '<div>' .
+             '<div class="readmoreContent">' .
                 '<h3>'.$detail['sub_header'].'</h3>'.
                 '<p>'.$detail['sub_description'].'</p>'.
-             '</div'.
+             '</div>'.
+             '</div>'.
             '</div>';
     } ?>
 
