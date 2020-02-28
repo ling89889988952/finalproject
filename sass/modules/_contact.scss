@@ -20,11 +20,15 @@
         width: 80%;
         margin: 0 auto;
         h2 {
+            line-height: 200%;
             font-size: 2em;
             text-align: center;
             font-family: superclarendon, serif;
             font-style: normal;
             font-weight: 600;
+            span {
+                font-size: 0.8em;
+            }
         }
     }
     
@@ -136,6 +140,7 @@ button {
 #contactDetail {
     height:40%;
     background: #363636;
+    position: relative;
     h2 {
         margin: auto;
         font-size: 2em;
@@ -152,23 +157,37 @@ button {
     display: flex;
     flex-direction: row;
     margin-top: 5%;
+    vertical-align: top;
 }
 
 .contactInfo {
-    margin-top: auto;
+    margin-top: 0;
     width: 25%;
+    
     p {
+        padding: 0 20% 0 20%;
         text-align: center;
         color: #fff;
+        font-size: 1.2em;
+        line-height: 120%;
+        letter-spacing: .02em;
     }
 }
 
-#copyright {
-    padding-top: 5%;
+#tip {
     width: 100%;
-    margin: 0 auto;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+}
+
+#copyright {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 20%;
     p {
-        text-align: center;
+        padding: 0 0 5% 10%;
         color: #fff;
     }
 }

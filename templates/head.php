@@ -32,7 +32,13 @@ header {
 
 #logo {
     width: 20%;
+    text-align: center;
 }
+#logo img {
+        padding-top: 5px;
+        width: 30%;
+    }
+
 
 #mainNav {
     width: 80%;
@@ -74,13 +80,44 @@ header {
             text-align: center;
             font-size: 2em;
             line-height: 200px;
+            position:relative;
+        }
+
+        #titlePic {
+            position: absolute;
+            margin-top:0;
+            top: 0;
+            left: 0;
+            bottom: 0;
+
+        }
+
+        #img1 {
+            width:40%;
+            margin-top: 0px;
         }
 
         #readmoreContent {
             background: #363636;
             width: 100%;
+            position: relative;
         }
 
+        #drugs {
+            position: absolute;
+            left: 0;
+        }
+
+        #img2 {
+            margin-top: 50%;
+            width: 50%;
+        }
+        #lady {
+            position: absolute;
+            right:0;
+        }
+
+        
         .readmoreContent {
             padding: 20px 0 20px 0;
             width: 60%;
@@ -101,32 +138,27 @@ header {
 
         /* footer */
         footer {
-            padding-top:20px;
             width: 100%;
             background: #363636;
-            border-top: solid 2px #e9b600;
+            position: relative;
         }
         footer h2 {
             color: #e9b600;
             margin-top: 2%;
             margin-left: 5%;
         }
-        #contactInfo {
-            display: flex;
-            flex-direction: row;
-            margin:0 auto;
-            width: 100%;
-            
+        #boy {
+            position:absolute;
+            right:0;
+            bottom: 0;
         }
 
-        .contactInfo {
-            width: 25%;
+        #img4{
+            width:60%;
+            float: right;
         }
 
-        .contactInfo p {
-            text-align:center;
-            color: #fff;
-        }
+        
         #copyright {
             width: 100%;
             padding-top: 50px;

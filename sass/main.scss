@@ -25,6 +25,11 @@ header {
 
 #logo {
     width: 20%;
+    text-align: center;
+    img {
+        padding-top: 5px;
+        width: 30%;
+    }
 }
 
 #mainNav {
@@ -69,6 +74,7 @@ header {
         margin:auto;
         font-family: superclarendon, serif;
         font-style: normal;
+        overflow: auto;
         
     h2 {
         text-align: center;

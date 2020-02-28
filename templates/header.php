@@ -2,7 +2,9 @@
     <h1 class="hidden"> Hiv Header</h1>
     <div id="mainHeader">
         <div class="backgroundFill"></div>
-        <div id="logo"></div>
+        <div id="logo">
+        <img src="images/HIV:Aids.png" alt="Logo">
+        </div>
         <nav id="mainNav">
             <ul>
                 <li><a href="#index">HOME</a></li>
