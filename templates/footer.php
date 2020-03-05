@@ -16,7 +16,7 @@
    
 ?>
 
-<footer>
+<footer id="readmoreFooter">
     <!-- <h2>Contact Information</h2> -->
     <?php foreach ($contactData as $contact) {
             // echo '<div id="contactInfo">' .
@@ -37,7 +37,7 @@
     <div id="boy">
                 <img id="img4" src="images/boy.png">
             </div>
-    <div id="copyright">
+    <div id="copyright1">
         <p>Copyright © <?php echo date('Y')?></p>
         <img src="images/<?php ?>" alt="<?php ?>">
     <div>
