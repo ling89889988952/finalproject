@@ -1,64 +1,66 @@
 <?php
 
-function register($name, $gender, $age, $email, $message,$date){
-  
-  $pdo = Database::getInstance()->getConnection();
-  // check existance
-  $check_exist_query = 'SELECT COUNT(*) FROM tbl_contact WHERE user_email = :email';
-  $user_check = $pdo->prepare($check_exist_query);
-  $user_check->execute(
-      array(
-          ':email' =>$email,
-      )
-      );
+function login($username, $password){
 
-  if($user_check->fetchColumn() == 0){
+    $pdo = Database::getInstance()->getConnection();
+    // check user existance
+    $check_exist_query = 'SELECT COUNT(*) FROM tbl_admin WHERE username = :username';
+    $user_set = $pdo->prepare($check_exist_query);
+    $user_set->execute(
+        array(
+            ':username' =>$username,
+        )
+        ); 
 
-      // User does exists
-      $insert_user = 'INSERT INTO tbl_contact (user_name, user_gender, user_age, user_email, user_message, user_date)
-                      VALUES (:name, :gender, :age, :email, :message, :date)';
-      $insert_user_set = $pdo->prepare($insert_user);
-      $insert_user_set ->execute(
-          array(
-              ':name'           =>  $name,
-              ':gender'         =>  $gender,
-              ':age'            =>  $age,
-              ':email'          =>  $email,
-              ':message'        =>  $message,
-              ':date'           =>  $date 
-          )
-          );
+    
+    if ($user_set->fetchColumn()>0){
+        // If the password did not encrypt, using the method to check the username and password
+        $get_user_query = 'SELECT * FROM tbl_admin WHERE username = :username';
+        $get_user_query .= ' AND password = :password';
+        $user_check = $pdo->prepare($get_user_query);
+        $user_check->execute(
+            array(
+                ':username'=>$username,
+                ':password'=>$password
+            )
+            );   
 
-          // echo "<script language=\"JavaScript\">alert(\"Welcome to follow us \");</script>";
+            while($found_user = $user_check->fetch(PDO::FETCH_ASSOC)){
+                $id = $found_user['admin_id'];
+                // logged in
+                $_SESSION['admin_id'] = $id;
+                $_SESSION['username'] = $found_user['username'];
 
-          if(isset($email)){
-              // mail_register($email);
-              echo "Welcome to follow us";
-          }
+            }
+ 
 
-      }else{
-          
-              $update_query = 'UPDATE tbl_contact SET user_name = :name, user_gender = :gender, user_age = :age, user_message = :message, 
-                                 user_date = user_date WHERE user_email = :email';
-              $update_set = $pdo->prepare($update_query);
-              $update_set->execute(
-                  array(
-                      ':name'           =>  $name,
-                      ':gender'         =>  $gender,
-                      ':age'            =>  $age,
-                      ':message'        =>  $message,
-                      ':email'          =>  $email
-                  )
-              );
+            if(isset($id)){
+                $message = 'You just logged in !';
+                // login to a welcome page
+                redirect_to('admin.php');
 
-              // echo "<script language=\"JavaScript\">alert(\"Thanks for you come back\");</script>";
+            }else{      
+                    
+                $message ='wrong password!';
+            }
+  }else {
+        $message ='User does not exist!';
+    }
 
-              if(isset($email)){
-                  // mail_register($email);
-                  echo "Thanks for you come back";
-              }            
-            
-      }
-  }
-      
+    return $message;  
+     
+}
+
+
+function confirm_logged_in(){
+    if(!isset($_SESSION['admin_id'])){
+        redirect_to('admin_login.php');
+    }
+}
+
+function logout(){
+    session_destroy();
+    redirect_to('admin_login.php');
+}
+
 

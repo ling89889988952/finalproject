@@ -5,7 +5,7 @@
         </div>
         <div>
             <h2>Subscription</h2>
-            <form action="php/sign.php" method="post"> 
+            <form action="php/member.php" method="post"> 
                 <label for="name">Name:</label>
                 <input id="name" type="text" name="name">
 
@@ -38,4 +38,3 @@
         </div>
     </div>
     <script src="js/main.js"></script>
-<
