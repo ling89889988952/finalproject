@@ -41,7 +41,7 @@ if(isset($_POST['submit'])) {
         <input type="text" name="username" value=""><br><br>
 
         <label>Password</label>
-        <input type="text" name="password" value="<?php echo systemPassword(8);?>"><br><br>
+        <input type="text" name="password" readonly value="<?php echo systemPassword(8);?>"><br><br>
 
         <label>Email</label>
         <!-- input the password by the system and can not change -->
