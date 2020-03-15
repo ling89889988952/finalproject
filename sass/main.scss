@@ -1,7 +1,7 @@
 // default setting
-html {
-    height: 570%;
-}
+// html {
+//     height: 570%;
+// }
 
 body {
     width: 100%;
@@ -102,8 +102,10 @@ header {
     }
 }
 // import
+@import '_var.scss';
 @import 'modules/_index.scss';
 @import 'modules/_hiv.scss';
 @import 'modules/_discrimination.scss';
 @import 'modules/_prevention.scss';
 @import 'modules/_contact.scss';
+@import 'modules/_readmore.scss';
