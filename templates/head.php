@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="readmorePage">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.typekit.net/olk3wss.css">
-    <!-- <link rel="stylesheet" href="css/main.css"> -->
+    <link rel="stylesheet" href="css/main.css">
     <title>HIV</title>
     <style>
-        body {
+        /* body {
     width: 100%;
     height: 100%;
     margin: 0 auto;
@@ -64,12 +64,12 @@ header {
         
         #mainNav ul li a:hover {
             color: #fff;
-        }
+        } */
 
 
         /* content */
 
-        #readmoreBody {
+        /* #readmoreBody {
             width:100%;
             
             background:#e9b600;
@@ -134,15 +134,15 @@ header {
             color: #fff;
             letter-spacing: .05em;
             line-height: 150%;
-        }
+        } */
 
         /* footer */
-        footer {
+        /* #readmoreFooter {
             width: 100%;
             background: #363636;
             position: relative;
         }
-        footer h2 {
+        #readmoreFooter h2 {
             color: #e9b600;
             margin-top: 2%;
             margin-left: 5%;
@@ -159,14 +159,14 @@ header {
         }
 
         
-        #copyright {
+        #copyright1 {
             width: 100%;
             padding-top: 50px;
         }
-        #copyright p{
+        #copyright1 p{
             color: #fff;
             text-align: center;
-        }
+        } */
     </style>
 </head>
 <body>
