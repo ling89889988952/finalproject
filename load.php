@@ -12,4 +12,7 @@ require_once ADMIN_SCRIPT_PATH.'/login.php';
 require_once ADMIN_SCRIPT_PATH.'/location.php';
 require_once ADMIN_SCRIPT_PATH.'/user.php';
 require_once ADMIN_SCRIPT_PATH.'/mail.php';
+require_once ADMIN_SCRIPT_PATH.'/fetchcontent.php';
+
+
 
