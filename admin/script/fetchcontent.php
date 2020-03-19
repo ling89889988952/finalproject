@@ -10,15 +10,15 @@ function getDetailContent(){
     $detail = array();
     if($get_detail_result){
         while($detail = $get_detail_set->fetch(PDO::FETCH_ASSOC)){
-            $currentdetail = array();
-            $currentdetail['id'] = $detail['id'];
-            $currentdetail['page'] = $detail['page'];
+            $currentdetail                 = array();
+            $currentdetail['id']           = $detail['id'];
+            $currentdetail['page']         = $detail['page'];
             $currentdetail['header_image'] = $detail['header_image'];
-            $currentdetail['header'] = $detail['header'];
-            $currentdetail['intro'] = $detail['intro'];
-            $currentdetail['image'] = $detail['image'];
-            $currentdetail['sub_image'] = $detail['sub_image'];
-            $currentdetail['sub_intro'] = $detail['sub_intro'];
+            $currentdetail['header']       = $detail['header'];
+            $currentdetail['intro']        = $detail['intro'];
+            $currentdetail['image']        = $detail['image'];
+            $currentdetail['sub_image']    = $detail['sub_image'];
+            $currentdetail['sub_intro']    = $detail['sub_intro'];
 
             $detail[] = $currentdetail;
         }
