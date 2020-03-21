@@ -7,7 +7,7 @@ function getDetailContent(){
     $get_detail_set    = $pdo->prepare($get_detail_query);
     $get_detail_result = $get_detail_set->execute();
 
-    $detail = array();
+    $details = array();
     if($get_detail_result){
         while($detail = $get_detail_set->fetch(PDO::FETCH_ASSOC)){
             $currentdetail                 = array();
@@ -20,9 +20,9 @@ function getDetailContent(){
             $currentdetail['sub_image']    = $detail['sub_image'];
             $currentdetail['sub_intro']    = $detail['sub_intro'];
 
-            $detail[] = $currentdetail;
+            $details[] = $currentdetail;
         }
-        return json_encode($detail);
+        return json_encode($details);
     }else{
         return 'Error';
     }
@@ -56,3 +56,15 @@ function getContact(){
     }
 }
 
+function getAllMember(){
+    $pdo = Database::getInstance()->getConnection();
+    $queryAll = ' SELECT * FROM tbl_member';
+    $results = $pdo->query($queryAll);
+
+    if($results){
+        return $results;
+    }else{
+        return 'There was a problem accessing this info';
+    }
+
+}

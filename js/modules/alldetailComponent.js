@@ -20,7 +20,8 @@ export default {
 
     methods: {
         fetchAllContent(){
-            let url ='./admin/admin_detail.php?allcontent=true';
+            let url ='./admin/detail.php?allcontent=true';
+
             fetch(url)
             .then(res=>res.json())
             .then(data => this.detailList = data)
