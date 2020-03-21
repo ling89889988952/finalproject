@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
     <h1>Welcome</h1>
     <p>Please enter the username and password in the form below.</p>
     <?php echo !empty($message)?$message:''; ?>
-    <form action="admin_login.php" method="post">
+    <form action="index.php" method="post">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" value="">
 

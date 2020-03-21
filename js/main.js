@@ -1,12 +1,12 @@
-import homeComponent from "./modules/homeComponent.js";
-import readComponent from "./modules/readComponent.js";
+import mainComponent from "./modules/mainComponent.js";
+import detailComponent from "./modules/alldetailComponent.js";
 
 (() =>{
 
     let router  = new VueRouter ({
         routes: [
-            { path: '/', name:'home',component:homeComponent},
-            { path: '/read', name: 'read',component:readComponent},
+            { path: '/', name:'main',component:mainComponent},
+            { path: '/read', name:'read',component:detailComponent},
         ]
     });
 
