@@ -1,13 +1,14 @@
 // contact page style
-#contact {
+#contact{
     width: 100%;
-    height: 27.8%;
+    height: 100%;
 }
 
 #contactTitle {
-    height: 60%;
+    height: auto;
     display: flex;
     flex-direction: row;
+    overflow: auto;
 }
 
 #contactSub{
@@ -62,17 +63,20 @@ form {
     }
 }
 
-input {
+input select{
     width: 90%;
     padding-left: 5%;
     height: 50px;
     border: #dbdbdb 1px solid;
 }
 
+
 #name {
     margin-bottom: 3%;
     border-radius: 5px;
 }
+
+
 
 #others {
     input {
@@ -110,12 +114,15 @@ button {
     // background-position-y: center;
 }
 #gender {
+    width: 48%;
+    height: 50px;
     // margin-left:.5%;
     margin-right: -.5px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
 #age {
+    width: 48%;
     margin-left: -.5px;
     margin-right: -.5%;
     border-top-right-radius: 5px;
@@ -163,6 +170,7 @@ button {
 .contactInfo {
     margin-top: 0;
     width: 25%;
+    margin-bottom: 10%;
     
     p {
         padding: 0 20% 0 20%;

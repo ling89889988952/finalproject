@@ -1,13 +1,8 @@
 export default {
-    template: `<h1> {{ message }} </h1>`,
+    template: `
+    <div id="index" class="subContainer">
+    <h1>put home page content in here</h1>
+    </div>
+    `,
 
-    created: function() {
-        console.log('our home component rendered');
-    },
-
-    data: function() {
-        return {
-            message: "This is my home page!",
-        }
-    }
 }

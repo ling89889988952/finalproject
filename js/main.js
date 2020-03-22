@@ -1,32 +1,18 @@
+import mainComponent from "./modules/mainComponent.js";
+import detailComponent from "./modules/alldetailComponent.js";
 
+(() =>{
 
-import homeComponent from "./modules/homeComponent.js";
-import contactComponent from "./modules/contactComponen.js"
+    let router  = new VueRouter ({
+        routes: [
+            { path: '/', name:'main',component:mainComponent},
+            { path: '/read', name:'read',component:detailComponent},
+        ]
+    });
 
+    const vm = new Vue({
 
-
-// these are the same as Express route -> route.get('/',..do something with the request)
-const routes = [
-    { path: '/', name:'home',component:homeComponent},
-    { path: '/contact', name:'contact',component:contactComponent}
-   
-
-]
-
-const router = new VueRouter({
-    routes // short for routes: routes
-})
-
-
-
-const vm = new Vue({
-    data:{
-
-    },
-
-    methods:{
-
-    },
-
-    router
+    router: router 
 }).$mount("#app");
+
+})();
