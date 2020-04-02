@@ -1,16 +1,19 @@
 import homeComponent    from './homeComponent.js';
 import introComponent   from './introComponent.js';
+import discriminationComponent   from './discriminationComponent.js';
+import preventionComponent   from './preventionComponent.js';
 import ContactComponent from './contactComponent.js';
 import MemberComponent  from './memberComponent.js';
 
 export default {
     template: `
-    <div>
+    <div id="vueroute">
        
         <homepage></homepage>
 
         <intro></intro>
-
+        <discrimination></discrimination>
+        <prevent></prevent>
         <div id="contact">
             <div id="contactTitle">
                 <div id="contactSub">
@@ -56,5 +59,7 @@ export default {
             contact:ContactComponent,
             member:MemberComponent ,
             intro:introComponent,
+            discrimination:discriminationComponent,
+            prevent:preventionComponent,
         }
 }

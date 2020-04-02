@@ -1,11 +1,11 @@
 // contact page style
 #contact{
     width: 100%;
-    height: 100%;
+    height: 30%;
 }
 
 #contactTitle {
-    height: auto;
+    height: 60%;
     display: flex;
     flex-direction: row;
     overflow: auto;
@@ -63,7 +63,21 @@ form {
     }
 }
 
-input select{
+input {
+    width: 90%;
+    padding-left: 5%;
+    height: 50px;
+    border: #dbdbdb 1px solid;
+}
+
+#gender {
+    width: 90%;
+    padding-left: 5%;
+    height: 50px;
+    border: #dbdbdb 1px solid;
+}
+
+#age {
     width: 90%;
     padding-left: 5%;
     height: 50px;
