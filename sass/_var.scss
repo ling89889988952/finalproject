@@ -1,5 +1,5 @@
 html {
-    height: 570%;
+    // height: 570%;
 }
 
 .hidden {
@@ -15,8 +15,16 @@ html {
     height: 100%;
 }
 
+.subContainer {
+    // height: 17.55%;
+    height: 100vh;
+    min-height: 600px;
+}
+
 #combineContainer {
-    height: 35.1%;
+    // height: 35.1%;
+    height: 200vh;
+    min-height: 1200px;
 }
 
 .combineSub {
@@ -65,7 +73,7 @@ p {
 
 @media (min-width:900px) {
     .textInfo {
-
+        min-height: 450px;
         h2 {
             font-size: 1.5em;
         }
@@ -73,22 +81,22 @@ p {
             margin-top: 20%;
         }
         .readmore {
-            margin-top: 30%;
+            margin-top: 20%;
         }
     }
 
 }
 
 
-@media (min-width:1200px) {
-    .textInfo {
-        h2 {
-            font-size: 2em;
-        }
+// @media (min-width:1600px) {
+//     .textInfo {
+//         h2 {
+//             font-size: 2em;
+//         }
 
-        p {
-            margin-top: auto;
-            font-size: 1.5em;
-        }
-    }
-}
+//         p {
+//             margin-top: auto;
+//             font-size: 1.5em;
+//         }
+//     }
+// }

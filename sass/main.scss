@@ -10,7 +10,9 @@ body {
 }
 
 header {
-    height: 2%;
+    height: 15vh;
+    max-height: 75px;
+    min-height: 60px;
     background: #e9b600;
 }
 
@@ -66,9 +68,7 @@ header {
     }
 }
 
-.subContainer {
-    height: 17.55%;
-}
+
 
 // burger menu
 

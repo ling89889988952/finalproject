@@ -6,8 +6,8 @@ export default {
     <div id="HIV" class="subContainer">
         <div class="HIVsub">
             <div class="textInfo">
-                <h2>What is HIV/AIDS?<br>What is different?<br></h2>
-                <p><br>HIV is a virus that damages the immune system.<br><br>
+                <h2>What is HIV/AIDS?<br>What is different?</h2>
+                <p>HIV is a virus that damages the immune system.<br><br>
                     To develop AIDS, a person has to have contracted HIV. But having HIV doesn’t necessarily mean that someone will develop AIDS.
                     <br>
                 </p>
