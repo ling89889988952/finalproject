@@ -7,7 +7,7 @@
         'tbl'=>'tbl_content',
         'tbl2'=>'tbl_category',
         'tbl3'=>'tbl_content_category',
-        'col'=>'main_id',
+        'col'=>'content_id',
         'col2'=>'category_id',
     );
     $getContent= getAllbyCategory($args);
@@ -41,8 +41,10 @@
 <body>
     <a href="admin.php"> Back to admin</a><br>
     <a href="admin_content_home.php">Edit HomePage</a><br>
+    <a href="admin_content_hiv.php">Edit HIV Introduce</a><br>
     <a href="admin_content_contact.php">Edit Contact Infomation</a><br>
     <a href="admin_content_detail.php">Edit Readmore Infomation</a><br>
+    <a>Add New Content</a>
 
     <h2 style="text-align:center">Content System</h2>
     <p style="text-align:center"><?php echo !empty($message)? $message:'';?></p>
@@ -51,9 +53,11 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>title</th>
+                <th>Header</th>
                 <th>introduce</th>
-                <th>category</th>
+                <th>Picture</th>
+                <th>Video</th>
+                <th>Category</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -62,9 +66,11 @@
         <tbody>
         <?php while($contents = $getContent->fetch(PDO::FETCH_ASSOC)):?>
             <tr>
-            <td><?php echo $contents['main_id'];?></td>
-            <td><?php echo $contents['title'];?></td>
-            <td><?php echo $contents['intro'];?></td>
+            <td><?php echo $contents['content_id'];?></td>
+            <td><?php echo $contents['content_header'];?></td>
+            <td><?php echo $contents['content_intro'];?></td>
+            <td><img src="../images/<?php echo $contents['content_picture'];?>"alt="header image" width="100%"></td>
+            <td><video src="../video/<?php echo $contents['video_source'];?> " controls width='320px' height='200px'></td>
             <td><?php echo $contents['category_name'];?></td>
             <td><a href="admin_content_edit.php?id=<?php echo $contents['main_id'];?>">Update</a></td>
             <td><a href="admin_content.phps?id=<?php echo $contents['main_id'];?>">Delete</a></td>
