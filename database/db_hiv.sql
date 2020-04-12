@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 12, 2020 at 05:58 AM
+-- Generation Time: Apr 12, 2020 at 06:06 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.7
 
@@ -119,7 +119,7 @@ INSERT INTO `tbl_content` (`content_id`, `content_header`, `content_intro`, `con
 
 CREATE TABLE `tbl_content_category` (
   `id` int(11) NOT NULL,
-  `video_id` int(11) NOT NULL,
+  `content_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -127,7 +127,7 @@ CREATE TABLE `tbl_content_category` (
 -- Dumping data for table `tbl_content_category`
 --
 
-INSERT INTO `tbl_content_category` (`id`, `video_id`, `category_id`) VALUES
+INSERT INTO `tbl_content_category` (`id`, `content_id`, `category_id`) VALUES
 (1, 1, 2),
 (2, 2, 3);
 

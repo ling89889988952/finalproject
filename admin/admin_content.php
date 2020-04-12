@@ -6,7 +6,7 @@
     $args = array(
         'tbl'=>'tbl_content',
         'tbl2'=>'tbl_category',
-        'tbl3'=>'tbl_main_category',
+        'tbl3'=>'tbl_content_category',
         'col'=>'main_id',
         'col2'=>'category_id',
     );
