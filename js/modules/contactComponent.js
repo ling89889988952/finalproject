@@ -29,6 +29,8 @@ export default {
         <div id="copyright">
             <p>Copyright © {{ year }}</p>
         </div>
+        <div id="snapchat">
+        </div>
     </div>
         `        
         ,
