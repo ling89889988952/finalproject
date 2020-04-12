@@ -8,6 +8,7 @@ function systemPassword( $length = 8) {
     return $password;
 }
 
+
 date_default_timezone_set("America/Toronto");
 $create_date = date("Y-m-d H:i:s");
 

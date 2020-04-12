@@ -4,7 +4,8 @@ require_once '../load.php';
 
 confirm_logged_in();
 
-$getMember = getAllMember();
+$member_table = 'tbl_member';
+$getMember = getAll($member_table);
 
 if(!$getMember){
     $message = 'Failed to get member list';
@@ -17,15 +18,17 @@ if(!$getMember){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Member</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <title>CMS - Member</title>
 </head>
 <body>
-    <h2>Member List</h2>
+    <a href="admin.php">Back to Admin</a>
+    <h2 style="text-align:center">Member List</h2>
     <?php echo !empty($message)? $message:''?>
     <table>
         <thead>
             <tr>
-                <th>Member_id</th>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Gender</th>
                 <th>Age</th>
@@ -48,7 +51,6 @@ if(!$getMember){
         <?php endwhile;?>
         </tbody>
     </table>
-    <p><a href="admin.php">Back to Admin</a></p>
     
 </body>
 </html>
