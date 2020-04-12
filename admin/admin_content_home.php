@@ -41,11 +41,7 @@ if(isset($_POST['submit'])){
         <label>Introduce:</label><br>
         <textarea type='text' name='introduce'><?php echo $homeinfo['home_introduce'];?></textarea><br>
 
-        <label>Video</label><br>
-        <div>
-        <video src="../video/<?php echo $homeinfo['home_video'];?> " controls width='320px' height='200px'>
-        </div>
-        <br><br>
+
     <?php endwhile;?>
     <button type='submit' name='submit'>Update Information</button>
         
