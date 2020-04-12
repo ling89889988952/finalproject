@@ -8,7 +8,6 @@ $getCategory = getAll($category_table);
 if(isset($_POST['submit'])){
     $contentinfo =  array(
         'cover'      => $_FILES['cover'],
-        'video'      => $_FILES['video'],
         'header'     => trim($_POST['header']),
         'introduce'  => trim($_POST['introduce']),
         'category'   => trim($_POST['cateList']),
@@ -40,9 +39,6 @@ if(isset($_POST['submit'])){
         <label>Picture:</label><br>
         <input type="file" name="cover" value=""><br><br>
 
-
-        <label>Video:</label><br>
-        <input type="file" name="video" value=""><br><br>     
 
         <label>Category:</label><br>
         <select name="cateList">

@@ -2,7 +2,7 @@
 require_once '../load.php';
 confirm_logged_in();
 
-
+// show video detail
 $args = array(
     'tbl'=>'tbl_video',
     'tbl2'=>'tbl_category',
@@ -15,18 +15,19 @@ if(!$getVideo){
     $message = 'Failed to get the content';
 } 
 
+// delete the video
+if(isset($_GET['id'])){
+    $video_id = $_GET['id'];
 
-// if(isset($_GET['id'])){
-//     $detail_id = $_GET['id'];
-//     if($detail_id){
-//         $delete_detail = deleteDeatil($detail_id);
-//         if(!$$delete_detail){
-//             $message ='Failed to delete detail';
-//         }
-//     }else{
-//        $message = 'You can not delete';
-//     }
-// }
+    if($video_id){
+        $delete_video = deleteVideo($video_id);
+        if(!$delete_video){
+            $message ='Failed to delete Video';
+        }
+    }else{
+       $message = 'You can not delete';
+    }
+}
 
 
 
@@ -41,7 +42,7 @@ if(!$getVideo){
     <title>CMS - Edit Video</title>
 </head>
 <body>
-    <a href="admin.php"> Back to admin</a><br>
+    <a href="admin_content.php"> Back to Content Management</a><br>
     <a href="admin_add_video.php">Add Video</a><br>
     <h2 style="text-align:center"> Edit Video</h2>
     <p style="text-align:center"><?php echo !empty($message)? $message:'';?></p>
@@ -65,7 +66,7 @@ if(!$getVideo){
                 <td><video src="../video/<?php echo $videos['video_source'];?> " controls width='320px' height='200px'></td>
                 <td style="text-align:center"><?php echo $videos['category_name'];?></td>
                 <td><a href="admin_editvideo.php?id=<?php echo $videos['video_id'];?>">Update</a></td>
-                <td><a href="admin_content_video.php?id=<?php $videos['video_id'];?>">Delete</a></td>
+                <td><a href="admin_content_video.php?id=<?php echo $videos['video_id'];?>">Delete</a></td>
             </tr>
         <?php endwhile;?>
         </tbody>

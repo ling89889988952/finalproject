@@ -10,8 +10,7 @@ $getCategory = getAll($category_table);
 $show_detail = showDetail($_GET['id']);
 $detailinfo = $show_detail->fetch(PDO::FETCH_ASSOC);
 
-// var_dump($detailinfo);
-// exit;
+
 
 
 if(isset($_POST['submit'])){
@@ -28,16 +27,17 @@ if(isset($_POST['submit'])){
     $detail_id = $_GET['id'];
 
     if($image['error'] == 4 && $image2['error'] == 4 && $image3['error'] == 4){
-        $detail_image  = $detailinfo['header_image'];
-        $detail_image2 = $detailinfo['image'];
-        $detail_image3 = $detailinfo['sub_image'];
-        $result  = editDetail($detail_image,$detail_image2,$detail_image3,$detail_edit,$detail_id);
+      
+        $result  = editDetail($detail_edit,$detail_id);
 
-    }else{
+    }elseif($image['error'] == 0 && $image2['error'] == 0 && $image3['error'] == 0){
         $image   = $_FILES['cover'];
         $image2  = $_FILES['cover2'];
         $image3  = $_FILES['cover3'];
         $result  = editDetailImage($image,$image2,$image3,$detail_edit,$detail_id);
+    }else{
+
+        $result = 'You can not just modify partial picture';
     }
 
     $message = $result;

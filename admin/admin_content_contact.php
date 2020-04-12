@@ -10,10 +10,17 @@ if(!$getContact){
 }
 
 if(isset($_POST['submit'])){
-    $username   = trim($_POST['username']);
-    $password   = trim($_POST['password']);
-    $email      = trim($_POST['email']);
-    $message    = editUser($id,$username,$password,$email);
+    $title         = trim($_POST['title']);
+    $address       = trim($_POST['address']);
+    $phone         = trim($_POST['phone']);
+    $email         = trim($_POST['email']);
+    $website       = trim($_POST['website']);
+
+    if(!empty($title) && !empty($address) && !empty($phone) && !empty($email) && !empty($website)){
+        $message    = editContactPage($title,$address,$phone,$email,$website);
+    }else{
+        $message = 'Please fill all blank';
+    }
 }
 
 ?>
@@ -33,19 +40,19 @@ if(isset($_POST['submit'])){
     <form action='admin_content_contact.php' method='post'>
     <?php while($contactinfo = $getContact->fetch(PDO::FETCH_ASSOC)):?>
         <label>Contact_title<label><br>
-        <input  class="cme-input" type='text' name='title' value='<?php echo $contactinfo['contact_title'];?>'><br>
+        <textarea  class="cme-input" type='text' name='title'><?php echo $contactinfo['contact_title'];?></textarea><br>
 
         <label>Address<label><br>
-        <input class="cme-input" type='text' name='address' value='<?php echo $contactinfo['contact_address'];?>'><br>
+        <textarea class="cme-input" type='text' name='address'><?php echo $contactinfo['contact_address'];?></textarea><br>
 
         <label>Phone:<label><br>
-        <input  class="cme-input" type='text' name='phone' value='<?php echo $contactinfo['contact_phone'];?>'><br>
+        <textarea  class="cme-input" type='text' name='phone'><?php echo $contactinfo['contact_phone'];?></textarea><br>
 
         <label>Email:<label><br>
-        <input  class="cme-input" type='text' name='email' value='<?php echo $contactinfo['contact_email'];?>'><br>
+        <textarea class="cme-input" type='email' name='email'><?php echo $contactinfo['contact_email'];?></textarea><br>
 
         <label>Website:<label><br>
-        <input class="cme-input" type='text' name='email' value='<?php echo $contactinfo['contact_website'];?>'><br>
+        <textarea class="cme-input" type='text' name='website'><?php echo $contactinfo['contact_website'];?></textarea><br>
 
     <?php endwhile;?>
         <button type='submit' name='submit' class="cms-button">Update Information</button>
