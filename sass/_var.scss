@@ -16,5 +16,79 @@ html {
 }
 
 #combineContainer {
-    height: 200%;
+    height: 35.1%;
+}
+
+.combineSub {
+    height: 50%;
+}
+
+.textInfo {
+    width: 80%;
+    height: 80%;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:auto;
+    font-family: superclarendon, serif;
+    font-style: normal;
+    overflow: auto;
+    
+h2 {
+    text-align: center;
+    line-height: 200%;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+p {
+    margin-top: auto;
+    font-size: 1em;
+    line-height: 150%;
+    font-weight: 400;
+}
+
+.readmore {
+    text-align: center;
+    margin-top: 10%;
+    a {
+        padding: 2% 8% 2% 8%;
+        border: solid 2px #e9b600;
+        text-decoration: none;
+        color: #e9b600;
+        font-weight: 400;
+    }
+}
+}
+
+@media (min-width:900px) {
+    .textInfo {
+
+        h2 {
+            font-size: 1.5em;
+        }
+        p {
+            margin-top: 20%;
+        }
+        .readmore {
+            margin-top: 30%;
+        }
+    }
+
+}
+
+
+@media (min-width:1200px) {
+    .textInfo {
+        h2 {
+            font-size: 2em;
+        }
+
+        p {
+            margin-top: auto;
+            font-size: 1.5em;
+        }
+    }
 }

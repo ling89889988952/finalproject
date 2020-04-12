@@ -2,7 +2,7 @@ export default {
     template: `
     <div id="combineContainer">
     <!-- 0 DISCRIMINATION -->
-    <div id="discrimination" class="subContainer">
+    <div id="discrimination" class="combineSub">
         <div id="heart">
             <img src="images/hug.png" alt="huge">
         </div>
@@ -21,11 +21,11 @@ export default {
     </div>
 
     <!-- PREVENTION -->
-    <div id="prevention" class="subContainer">
+    <div id="prevention" class="combineSub">
         <div id="preventionSub">
             <div class="textInfo">
                 <h2>HIV prevention<br></h2>
-                <p><br>Safer sex, Avoid sharing needles or other drug paraphernalia.<br><br><br>
+                <p><br>Safer sex, Avoid sharing needles or other drug paraphernalia.<br><br>
                     Although many researchers are working to develop one, there’s currently no vaccine available to prevent the transmission of HIV. However, taking certain steps can help prevent the spread of HIV.
                     <br>
                 </p>
@@ -40,26 +40,6 @@ export default {
     </div>
     </div>
     `,
-    created: function ()  {
-        this.fetchContent();
-    },
-
-    data () {
-        return {
-            subscription: 'Want get more knowledge about HIV?',
-            contactList: []
-        }
-    },
-
-    methods:{
-        fetchContect(){
-            let url = './admin/admin_content.php?=true';
-
-            fetch(url)
-            .then(res  => res.json())
-            .then(data => this.contactList = data)
-            .catch((error) => console.error(error))
-        }
-    },
+    
 
 }

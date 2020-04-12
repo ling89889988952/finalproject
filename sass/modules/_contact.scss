@@ -7,13 +7,13 @@
 #contactTitle {
     height: 60%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     overflow: auto;
 }
 
 #contactSub{
-    height: 100%;
-    width: 50%;
+    height: 50%;
+    width: 100%;
     background: #e9b600;
     display: flex;
     align-items: center;
@@ -36,8 +36,8 @@
 }
 
 #contactForm {
-    height: 100%;
-    width: 50%;
+    height: 50%;
+    width: 100%;
     position: relative;
 }
 
@@ -45,7 +45,7 @@ form {
     display: flex;
     flex-direction: column;
     width: 60%;
-    height: 80%;
+    height: 90%;
     margin: auto;
     position:absolute;
 	    top:0;
@@ -55,32 +55,31 @@ form {
 
     h2 {
         text-align: center;
-        font-size: 2em;
+        font-size: 1.2em;
         font-family: superclarendon, serif;
             font-style: normal;
             font-weight: 600;
-            margin-bottom: 20%;
     }
 }
 
 input {
     width: 90%;
     padding-left: 5%;
-    height: 50px;
+    height: 40px;
     border: #dbdbdb 1px solid;
 }
 
 #gender {
     width: 90%;
     padding-left: 5%;
-    height: 50px;
+    height: 40px;
     border: #dbdbdb 1px solid;
 }
 
 #age {
     width: 90%;
     padding-left: 5%;
-    height: 50px;
+    height: 40px;
     border: #dbdbdb 1px solid;
 }
 
@@ -102,7 +101,7 @@ input {
 button {
     margin: auto;
     text-align: center;
-    margin-top: 10%;
+    // margin-top: 10%;
     border-radius: 10px;
     background-color: #dbdbdb;
     width: 40%;
@@ -129,7 +128,7 @@ button {
 }
 #gender {
     width: 48%;
-    height: 50px;
+    height: 40px;
     // margin-left:.5%;
     margin-right: -.5px;
     border-top-left-radius: 5px;
@@ -164,33 +163,33 @@ button {
     position: relative;
     h2 {
         margin: auto;
-        font-size: 2em;
+        font-size: 1.2em;
         font-family: superclarendon, serif;
             font-style: normal;
             font-weight: 600;
             color:#e9b600;
-            padding-top: 2%;
-            padding-left: 5%;
+            padding-top: 5%;
+            text-align: center;
     }
 }
 
 #contactInfo {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-top: 5%;
     vertical-align: top;
 }
 
 .contactInfo {
     margin-top: 0;
-    width: 25%;
-    margin-bottom: 10%;
+    width: 100%;
+    margin-bottom: auto;
     
     p {
         padding: 0 20% 0 20%;
         text-align: center;
         color: #fff;
-        font-size: 1.2em;
+        font-size: 1em;
         line-height: 120%;
         letter-spacing: .02em;
     }
@@ -212,4 +211,78 @@ button {
         padding: 0 0 5% 10%;
         color: #fff;
     }
+}
+
+@media (min-width: 900px) {
+    #contactTitle {
+        flex-direction: row;
+    }
+
+    #contactSub {
+        width: 50%;
+        height: 100%;
+    }
+    #contactForm {
+        width: 50%;
+        height: 100%;
+    }
+
+    #form {
+        height: 80%;
+        h2 {
+            margin-bottom: 20%;
+            font-size: 1.5em;
+        }
+        button {
+            margin-top: 20%;
+        }
+        input {
+            height: 50px;
+
+        }
+        
+        #gender {
+
+            height: 50px;
+
+        }
+        
+        #age {
+
+            height: 50px;
+        }
+    }
+
+    #contactDetail {
+        h2 {
+            text-align: left;
+            padding-top: 2%;
+            padding-left: 5%;
+            font-size: 1.5em;
+        }
+    }
+
+    #contactInfo {
+        flex-flow: row wrap;
+
+        .contactInfo {
+            flex: 0 0 50%;
+            margin-bottom: 10%;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    #form {
+        h2 {
+            font-size: 2em;
+        }
+    }
+    #contactInfo {
+        .contactInfo {
+            flex: 0 0 25%;
+            margin-bottom: 10%;
+        }
+    }
+
 }

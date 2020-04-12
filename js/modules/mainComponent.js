@@ -4,7 +4,7 @@ import introComponent   from './introComponent.js';
 // import preventionComponent   from './preventionComponent.js';
 import ContactComponent from './contactComponent.js';
 import MemberComponent  from './memberComponent.js';
-import discrimPreventComponent from '/discrimPrevent.js';
+import discrimPreventComponent from './discrimPreventComponent.js';
 
 export default {
     template: `
@@ -12,7 +12,7 @@ export default {
        
         <homepage></homepage>
 
-        <discrimination></discrimination>
+       <intro></intro>
         <discrimPrevent></discrimPrevent>
 
         <div id="contact">
