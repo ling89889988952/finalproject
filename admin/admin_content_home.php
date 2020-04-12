@@ -32,20 +32,22 @@ if(isset($_POST['submit'])){
     <?php echo!empty($message)? $message:'';?>
     <form action='admin_content_home.php' method='post'>
     <?php while($homeinfo = $getHome ->fetch(PDO::FETCH_ASSOC)):?>
-        <label>Header<label><br>
+        <label>Header</label><br>
         <input  type='text' name='header' value='<?php echo $homeinfo['home_header'];?>'><br>
 
-        <label>Sub_Header<label><br>
+        <label>Sub_Header</label><br>
         <input  type='text' name='sub_header' value='<?php echo $homeinfo['home_subheader'];?>'><br>
 
-        <label>Introduce:<label><br>
+        <label>Introduce:</label><br>
         <textarea type='text' name='introduce'><?php echo $homeinfo['home_introduce'];?></textarea><br>
 
-        <label>Video<label><br>
+        <label>Video</label><br>
+        <div>
         <video src="../video/<?php echo $homeinfo['home_video'];?> " controls width='320px' height='200px'>
-
-
+        </div>
+        <br><br>
     <?php endwhile;?>
-        <button type='submit' name='submit'>Update Information</button>
+    <button type='submit' name='submit'>Update Information</button>
+        
 </body>
 </html>
