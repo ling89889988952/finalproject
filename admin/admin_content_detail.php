@@ -21,7 +21,7 @@ if(isset($_GET['id'])){
     if($detail_id){
         $delete_detail = deleteDeatil($detail_id);
         if(!$$delete_detail){
-            $message ='Failed to delete user';
+            $message ='Failed to delete detail';
         }
     }else{
        $message = 'You can not delete';
