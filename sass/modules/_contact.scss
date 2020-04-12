@@ -1,19 +1,20 @@
 // contact page style
 #contact{
     width: 100%;
-    height: 30%;
 }
 
 #contactTitle {
-    height: 60%;
+    height: 100vh;
+    min-height: 800px;
     display: flex;
     flex-direction: column;
     overflow: auto;
 }
 
 #contactSub{
-    height: 50%;
+    height: 50vh;
     width: 100%;
+    min-height: 400px;
     background: #e9b600;
     display: flex;
     align-items: center;
@@ -36,8 +37,9 @@
 }
 
 #contactForm {
-    height: 50%;
+    height: 50vh;
     width: 100%;
+    min-height: 400px;
     position: relative;
 }
 
@@ -51,7 +53,8 @@ form {
 	    top:0;
 	    bottom:0;
 	    left:0;
-	    right:0;
+        right:0;
+        overflow: auto;
 
     h2 {
         text-align: center;
@@ -158,7 +161,8 @@ button {
 // }
 
 #contactDetail {
-    height:40%;
+    height:50vh;
+    min-height: 300px;
     background: #363636;
     position: relative;
     h2 {
@@ -216,15 +220,18 @@ button {
 @media (min-width: 900px) {
     #contactTitle {
         flex-direction: row;
+        min-height: 600px;
     }
 
     #contactSub {
         width: 50%;
-        height: 100%;
+        height: 100vh;
+        min-height: 600px;
     }
     #contactForm {
         width: 50%;
-        height: 100%;
+        height: 100vh;
+        min-height: 600px;
     }
 
     #form {
@@ -254,6 +261,8 @@ button {
     }
 
     #contactDetail {
+        height: 50vh;
+        min-height: 300px;
         h2 {
             text-align: left;
             padding-top: 2%;
@@ -276,6 +285,7 @@ button {
     #form {
         h2 {
             font-size: 2em;
+            margin-bottom: 0;
         }
     }
     #contactInfo {
