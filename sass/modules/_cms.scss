@@ -1,0 +1,38 @@
+table {
+    border-collapse: collapse;
+    width: 90%;
+    border: 1px solid black;
+    margin: 0 auto;
+  }
+
+  th, td {
+    padding: 0.8em;
+    text-align: left;
+    border: 1px solid black;
+  }
+ 
+  
+ th{
+    height: 1em;
+    text-align: left;
+    background-color:#e9b600;
+    color: black;
+    
+ }
+
+ thead th{
+     text-align: center;
+ }
+
+ td {
+    vertical-align:center;
+    text-align: center;
+  }
+
+.cme-input{
+  padding: 1em;
+} 
+
+.cms-button{
+  margin-top: 1em;
+}

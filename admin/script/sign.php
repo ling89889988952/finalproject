@@ -1,6 +1,6 @@
 <?php
 
-function register($name, $gender, $age, $email, $message, $date){
+function register(){
   
   $pdo = Database::getInstance()->getConnection();
   // check existance
@@ -8,7 +8,7 @@ function register($name, $gender, $age, $email, $message, $date){
   $user_check = $pdo->prepare($check_exist_query);
   $user_check->execute(
       array(
-          ':email' =>$email,
+          ':email' =>$_POST['email'],
       )
       );
 
@@ -20,12 +20,12 @@ function register($name, $gender, $age, $email, $message, $date){
       $insert_user_set = $pdo->prepare($insert_user);
       $insert_user_set ->execute(
           array(
-              ':name'           =>  $name,
-              ':gender'         =>  $gender,
-              ':age'            =>  $age,
-              ':email'          =>  $email,
-              ':message'        =>  $message,
-              ':date'           =>  $date 
+              ':name'           =>  $_POST['name'],
+              ':gender'         =>  $_POST['gender'],
+              ':age'            =>  $_POST['age'],
+              ':email'          =>  $_POST['email'],
+              ':message'        =>  $_POST['message'],
+              ':date'           =>  '1'
           )
           );
 
@@ -41,11 +41,11 @@ function register($name, $gender, $age, $email, $message, $date){
               $update_set = $pdo->prepare($update_query);
               $update_set->execute(
                   array(
-                      ':name'           =>  $name,
-                      ':gender'         =>  $gender,
-                      ':age'            =>  $age,
-                      ':message'        =>  $message,
-                      ':email'          =>  $email
+                    ':name'           =>  $_POST['name'],
+                    ':gender'         =>  $_POST['gender'],
+                    ':age'            =>  $_POST['age'],
+                    ':email'          =>  $_POST['email'],
+                    ':message'        =>  $_POST['message'],
                   )
               );
 

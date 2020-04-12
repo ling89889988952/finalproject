@@ -3,6 +3,7 @@
 
     confirm_logged_in()
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +15,9 @@
 <body>
     <h2>Welcome! <?php echo $_SESSION['username'];?></h2>
 
-    <a href="admin_creatuser.php"> Create User </a><br>
-    <a href="admin_edituser.php">Edit User</a><br>
-    <a href="admin_member.php">Show Memeber</a><br>
+    <a href="admin_user.php">User Management </a><br>
+    <a href="admin_content.php">Content Management </a><br>
+    <a href="admin_member.php">Member Mangement</a><br>
     <a href="admin_logout.php"> Sign Out </a>
 </body>
 </html>

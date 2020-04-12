@@ -1,7 +1,6 @@
 <?php
 
-function login($username, $password){
-    
+function login($username, $password){ 
     $pdo = Database::getInstance()->getConnection();
     // check user existance
     $check_exist_query = 'SELECT COUNT(*) FROM tbl_admin WHERE username = :username';
@@ -12,94 +11,98 @@ function login($username, $password){
         )
         ); 
 
-    
+
     if ($user_set->fetchColumn()>0){
-        $get_user_query = 'SELECT * FROM tbl_admin WHERE username = :username';
-        $get_user_query .= ' AND password = :password';
-        $user_check = $pdo->prepare($get_user_query);
+        // vertify the regular password
+        $get_user_query    = 'SELECT * FROM tbl_admin WHERE username = :username AND password = :password';
+        $user_check        = $pdo->prepare($get_user_query);
         $user_check->execute(
             array(
                 ':username'=>$username,
                 ':password'=>$password
             )
-            );   
+            );  
+        
+        $found_user = $user_check->fetch(PDO::FETCH_ASSOC);  
+        // regular password is true,login to edit and update the password_count =0
+        if($found_user){
+            $id = $found_user['admin_id'];
+            $_SESSION['admin_id'] = $id;
+            $_SESSION['username'] = $found_user['username'];
 
-
-            while($found_user = $user_check->fetch(PDO::FETCH_ASSOC)){
-                $id = $found_user['admin_id'];
-                // logged in
-                $_SESSION['admin_id'] = $id;
-                $_SESSION['username'] = $found_user['username'];
-
-            }
-            
-            if(isset($id)){
-                $message = 'You just logged in !';
-                // login to a welcome page
-                redirect_to('admin_edituser.php');
-
-            }else{      
-                
-                $query_password = 'SELECT * FROM tbl_admin WHERE username = :username';
-                $password_get= $pdo->prepare($query_password );
-                $password_get->execute(
+            $update_count  = 'UPDATE tbl_admin SET password_count = :password_count WHERE username = :username';
+            $count_set     = $pdo->prepare($update_count);
+            $count_set     ->execute(
                 array(
-                 ':username'=>$username,
-                )
-                );   
-                
-                $user_arry = $password_get->fetch(PDO::FETCH_ASSOC);
-                $count = $user_arry['login_count'];
-               
-                if($count == 1){
-                    $login_time = $user_arry['login_time'];
+                    ':password_count' =>  '0',
+                    ':username'       =>$username,
+                    )
+                );
 
-                    // get the now time
-                    date_default_timezone_set("America/Toronto");
-                    $now_date = date("Y-m-d H:i:s");
-                    // change the now time to strtotime and set the last time = after 12 hour
-                    $now = strtotime($now_date);
-
-                    $last = strtotime("$login_time + 12 hours");
-                    
-                    // compare the now time data <  the data of (late time + 12hours)
-                    if($now > $last){
-                        $message = 'Your account has been suspended.';
-                        session_destroy();
-                    }else{
-                        $password_hash = $user_arry['password'];
-                        // verify the password(post) and the user_password(from database)
-                    if(password_verify($password, $password_hash)){
-                        $message = "Your password is right";
-                        $user_id = $user_arry['admin_id'];
-                        $_SESSION['admin_id'] = $user_id ;
-                        $_SESSION['username'] = $user_arry['username'];
-
-                    redirect_to('admin.php');
-                        }else{
-                    $message ='wrong password!';
-                }
+            if(isset($id)){
+            redirect_to('admin_edituser.php');
             }
+
         }else{
-               $password_hash = $user_arry['password'];
-                // verify the password(post) and the user_password(from database)
-                if(password_verify($password, $password_hash)){
-                $message = "Your password is right";
-                $user_id = $user_arry['admin_id'];
-                $_SESSION['admin_id'] = $user_id ;
-                $_SESSION['username'] = $user_arry['username'];
-                redirect_to('admin.php');
-                }else{     
-                $message ='wrong password!';
-                }
-            }           
-                
-            }
-  }else {
-        $message ='User does not exist!'; }
+             // vertify the hash password
+            $query_password = 'SELECT * FROM tbl_admin WHERE username = :username';
+            $password_get   = $pdo->prepare($query_password );
+            $password_get->execute(
+                    array(
+                     ':username' => $username,
+                    )
+                    );   
+            $query_user = $password_get->fetch(PDO::FETCH_ASSOC);
+            $password_hash_result = $query_user['password'];
+            $now_password_count = $query_user['password_count'];
+            
+            // hash password is true,login to edit/manage and update the password_count =0
+            if(password_verify($password, $password_hash_result)){
+                $message ='your password is right';
+                $message               = "Your password is right";
+                $admin_id              = $query_user ['admin_id'];
+                $_SESSION['admin_id']  = $admin_id ;
+                $_SESSION['username']  = $query_user['username'];
+                $login_count           = $query_user['login_count'];
 
-    return $message;  
-     
+                $update_hash_count  = 'UPDATE tbl_admin SET password_count = :password_count WHERE username = :username';
+                $update_hash_result = $pdo->prepare($update_hash_count);
+                $update_hash_result ->execute(
+                    array(
+                        ':password_count' =>  '0',
+                        ':username'       =>$username,
+                        )
+                    );
+
+                if($login_count == '0'){
+                    redirect_to('admin_editUser.php');
+                }else{
+                    redirect_to('admin.php');
+                }
+            }
+            else{
+                $message ='wrong password!';
+                if($now_password_count <= 3){
+                
+                $update_password_count = 'UPDATE tbl_admin SET password_count = password_count+1 WHERE username = :username';
+                $password_count_set    = $pdo->prepare($update_password_count );
+                $password_count_set    ->execute(
+                    array(
+                        ':username'=>$username,
+                        )
+                    );
+                }else{
+                    die('Your Account has been locked');
+                }
+
+            }
+
+        }
+          
+    }else {
+    $message ='User does not exist!'; 
+    }
+    return $message;      
 }
 
 
