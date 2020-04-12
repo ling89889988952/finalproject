@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 12, 2020 at 06:06 AM
+-- Generation Time: Apr 12, 2020 at 04:28 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.7
 
@@ -41,7 +41,7 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`admin_id`, `username`, `password`, `email`, `login_count`, `password_count`, `login_time`) VALUES
-(1, 'admin', '$2y$10$R9jZLVmOHQELv4gypzN15OW/rOHN/uCiTqn5qhWc48.uyrPNwfVNm', '1@qq.com', 1, 0, '2020-04-12 03:09:37'),
+(1, 'admin', '$2y$10$R9jZLVmOHQELv4gypzN15OW/rOHN/uCiTqn5qhWc48.uyrPNwfVNm', '1@qq.com', 1, 1, '2020-04-12 14:49:46'),
 (2, 'zou', '$2y$10$AWPP8Qz8VNKHi8/83uD9ZucXc5qCmWB40En4EnICMzuNFYWiKdiyq', '002@qq.com', 3, 0, '2020-04-08 16:18:45'),
 (3, 'ling', '$2y$10$XSv7ZNtmapYEtvWR02HzQu3v3Iwd0QUP151H49rGoVNMoEM.WIB36', 'zgdbs123@sina.com', 1, 0, '2020-04-08 19:05:06'),
 (4, 'aling', '$2y$10$RbPp38GcD.yh8wBvAgFzEugXyljHMilaj9gTivbK.q9TyDv.6J2ai', '002@qq.com', 1, 0, '2020-04-08 19:02:15');
@@ -62,9 +62,10 @@ CREATE TABLE `tbl_category` (
 --
 
 INSERT INTO `tbl_category` (`category_id`, `category_name`) VALUES
-(1, 'hiv'),
-(2, 'discrimination'),
-(3, 'prevention');
+(1, 'home'),
+(2, 'hiv'),
+(3, 'discrimination'),
+(4, 'prevention ');
 
 -- --------------------------------------------------------
 
@@ -99,17 +100,16 @@ CREATE TABLE `tbl_content` (
   `content_id` int(11) NOT NULL,
   `content_header` text NOT NULL,
   `content_intro` text NOT NULL,
-  `content_picture` varchar(250) NOT NULL,
-  `video_source` varchar(250) NOT NULL
+  `content_picture` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_content`
 --
 
-INSERT INTO `tbl_content` (`content_id`, `content_header`, `content_intro`, `content_picture`, `video_source`) VALUES
-(1, 'Ending HIV stigma<br>and discrimination<br>', '<br>Discrimination is more scary than a virus<br><br>\r\n                    There are three ways to spread AIDS: blood, mother and child, and sex. Then in addition to these three ways, general hugs, handshake, and courtesy kissing will not be transmitted, so close contact with AIDS patients will not cause HIV infection.', 'hug.png', 'care.mp4'),
-(2, 'HIV prevention<br>', '<br>Safer sex, Avoid sharing needles or other drug paraphernalia.<br><br><br>\r\n                    Although many researchers are working to develop one, there’s currently no vaccine available to prevent the transmission of HIV. However, taking certain steps can help prevent the spread of HIV.\r\n                    <br>', 'condom.png', 'sex.mp4');
+INSERT INTO `tbl_content` (`content_id`, `content_header`, `content_intro`, `content_picture`) VALUES
+(1, 'Ending HIV stigma<br>and discrimination<br>', '<br>Discrimination is more scary than a virus<br><br>\r\n                    There are three ways to spread AIDS: blood, mother and child, and sex. Then in addition to these three ways, general hugs, handshake, and courtesy kissing will not be transmitted, so close contact with AIDS patients will not cause HIV infection.', 'hug.png'),
+(2, 'HIV prevention<br>', '<br>Safer sex, Avoid sharing needles or other drug paraphernalia.<br><br><br>\r\n                    Although many researchers are working to develop one, there’s currently no vaccine available to prevent the transmission of HIV. However, taking certain steps can help prevent the spread of HIV.\r\n                    <br>', 'condom.png');
 
 -- --------------------------------------------------------
 
@@ -128,8 +128,8 @@ CREATE TABLE `tbl_content_category` (
 --
 
 INSERT INTO `tbl_content_category` (`id`, `content_id`, `category_id`) VALUES
-(1, 1, 2),
-(2, 2, 3);
+(1, 1, 3),
+(2, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -173,9 +173,9 @@ CREATE TABLE `tbl_detail_category` (
 --
 
 INSERT INTO `tbl_detail_category` (`id_detail`, `detail_id`, `category_id`) VALUES
-(1, 1, 1),
-(2, 2, 2),
-(3, 3, 3);
+(1, 1, 2),
+(2, 2, 3),
+(3, 3, 4);
 
 -- --------------------------------------------------------
 
@@ -189,18 +189,16 @@ CREATE TABLE `tbl_hiv` (
   `hiv_detail` text NOT NULL,
   `hiv_intro` text NOT NULL,
   `hiv_picture` varchar(250) NOT NULL,
-  `hiv_video` varchar(250) NOT NULL,
   `aid_intro` text NOT NULL,
-  `aid_picture` varchar(250) NOT NULL,
-  `aid_video` varchar(250) NOT NULL
+  `aid_picture` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_hiv`
 --
 
-INSERT INTO `tbl_hiv` (`id`, `hiv_header`, `hiv_detail`, `hiv_intro`, `hiv_picture`, `hiv_video`, `aid_intro`, `aid_picture`, `aid_video`) VALUES
-(1, 'What is HIV/AIDS?<br>What is different?<br>', '<br>HIV is a virus that damages the immune system.<br><br><br>\r\n                    To develop AIDS, a person has to have contracted HIV. But having HIV doesn’t necessarily mean that someone will develop AIDS.\r\n                    <br>', 'HIV (human immunodeficiency virus) is a virus that attacks cells that help the body fight infection, making a person more vulnerable to other \r\ninfections and diseases.', 'virus.png', 'hiv.mp4', 'AIDS is the late stage of HIV \r\ninfection that occurs when the body’s immune system is badly \r\ndamaged because of the virus.', 'system.png', 'prevent.mp4');
+INSERT INTO `tbl_hiv` (`id`, `hiv_header`, `hiv_detail`, `hiv_intro`, `hiv_picture`, `aid_intro`, `aid_picture`) VALUES
+(1, 'What is HIV/AIDS?<br>What is different?<br>', '<br>HIV is a virus that damages the immune system.<br><br><br>\r\n                    To develop AIDS, a person has to have contracted HIV. But having HIV doesn’t necessarily mean that someone will develop AIDS.\r\n                    <br>', 'HIV (human immunodeficiency virus) is a virus that attacks cells that help the body fight infection, making a person more vulnerable to other \r\ninfections and diseases.', 'virus.png', 'AIDS is the late stage of HIV \r\ninfection that occurs when the body’s immune system is badly \r\ndamaged because of the virus.', 'system.png');
 
 -- --------------------------------------------------------
 
@@ -212,16 +210,15 @@ CREATE TABLE `tbl_home` (
   `id` int(11) NOT NULL,
   `home_header` text NOT NULL,
   `home_subheader` text NOT NULL,
-  `home_introduce` text NOT NULL,
-  `home_video` varchar(250) NOT NULL
+  `home_introduce` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_home`
 --
 
-INSERT INTO `tbl_home` (`id`, `home_header`, `home_subheader`, `home_introduce`, `home_video`) VALUES
-(1, 'zero aids?', 'First zero discrimination', '“HIV is not something that “guilty” people get. It is not a punishment for cheating, lying, using drugs or alcohol, having more than one partner, or not asking the right questions. \r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n-POSITIVE WOMEN\'S NETWORK OF THE UNITED STATES OF AMERICA', 'topvideo.mp4');
+INSERT INTO `tbl_home` (`id`, `home_header`, `home_subheader`, `home_introduce`) VALUES
+(1, 'zero aids?', 'First zero discrimination', '“HIV is not something that “guilty” people get. It is not a punishment for cheating, lying, using drugs or alcohol, having more than one partner, or not asking the right questions. \r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n-POSITIVE WOMEN\'S NETWORK OF THE UNITED STATES OF AMERICA');
 
 -- --------------------------------------------------------
 
@@ -245,6 +242,51 @@ CREATE TABLE `tbl_member` (
 
 INSERT INTO `tbl_member` (`user_id`, `user_name`, `user_gender`, `user_age`, `user_email`, `user_message`, `user_date`) VALUES
 (1, 'aling', 'prefer not to say', 'prefer not to say', 'zouling707@gmail.com', 'thanks a lot', '2020-02-13 19:11:28');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_video`
+--
+
+CREATE TABLE `tbl_video` (
+  `video_id` int(11) NOT NULL,
+  `video_source` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_video`
+--
+
+INSERT INTO `tbl_video` (`video_id`, `video_source`) VALUES
+(1, 'topvideo.mp4'),
+(2, 'hiv.mp4'),
+(3, 'prevent.mp4'),
+(4, 'care.mp4'),
+(5, 'sex.mp4');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_video_category`
+--
+
+CREATE TABLE `tbl_video_category` (
+  `id_video` int(11) NOT NULL,
+  `video_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_video_category`
+--
+
+INSERT INTO `tbl_video_category` (`id_video`, `video_id`, `category_id`) VALUES
+(1, 1, 1),
+(2, 2, 2),
+(3, 3, 2),
+(4, 4, 3),
+(5, 5, 4);
 
 --
 -- Indexes for dumped tables
@@ -311,6 +353,18 @@ ALTER TABLE `tbl_member`
   ADD PRIMARY KEY (`user_id`);
 
 --
+-- Indexes for table `tbl_video`
+--
+ALTER TABLE `tbl_video`
+  ADD PRIMARY KEY (`video_id`);
+
+--
+-- Indexes for table `tbl_video_category`
+--
+ALTER TABLE `tbl_video_category`
+  ADD PRIMARY KEY (`id_video`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -324,7 +378,7 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_contact`
@@ -348,13 +402,13 @@ ALTER TABLE `tbl_content_category`
 -- AUTO_INCREMENT for table `tbl_detail`
 --
 ALTER TABLE `tbl_detail`
-  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_detail_category`
 --
 ALTER TABLE `tbl_detail_category`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_hiv`
@@ -373,6 +427,18 @@ ALTER TABLE `tbl_home`
 --
 ALTER TABLE `tbl_member`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tbl_video`
+--
+ALTER TABLE `tbl_video`
+  MODIFY `video_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `tbl_video_category`
+--
+ALTER TABLE `tbl_video_category`
+  MODIFY `id_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

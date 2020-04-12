@@ -44,9 +44,10 @@
     <a href="admin_content_hiv.php">Edit HIV Introduce</a><br>
     <a href="admin_content_contact.php">Edit Contact Infomation</a><br>
     <a href="admin_content_detail.php">Edit Readmore Infomation</a><br>
-    <a>Add New Content</a>
+    <a href="admin_content_video.php">Edit Video</a><br>
 
     <h2 style="text-align:center">Content System</h2>
+    <div style="text-align:center"><a href="admin_content_add.php">Add New Content</a></div>
     <p style="text-align:center"><?php echo !empty($message)? $message:'';?></p>
     <table>
     <form action="admin_content.php" method="POST">
@@ -56,7 +57,6 @@
                 <th>Header</th>
                 <th>introduce</th>
                 <th>Picture</th>
-                <th>Video</th>
                 <th>Category</th>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -70,7 +70,6 @@
             <td><?php echo $contents['content_header'];?></td>
             <td><?php echo $contents['content_intro'];?></td>
             <td><img src="../images/<?php echo $contents['content_picture'];?>"alt="header image" width="100%"></td>
-            <td><video src="../video/<?php echo $contents['video_source'];?> " controls width='320px' height='200px'></td>
             <td><?php echo $contents['category_name'];?></td>
             <td><a href="admin_content_edit.php?id=<?php echo $contents['main_id'];?>">Update</a></td>
             <td><a href="admin_content.phps?id=<?php echo $contents['main_id'];?>">Delete</a></td>

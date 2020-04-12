@@ -297,3 +297,62 @@ function deleteContent($main_id){
     
 //     }
 // }
+
+// add the content detail (include video and image)
+function addContent($contentinfo){
+    try{
+        $pdo = Database::getInstance()->getConnection();
+        $cover           = $detailinfo['cover'];
+        $upload_file     = pathinfo($cover['name']);
+        $accepted_types  = array('gif', 'jpg', 'jpe', 'png', 'jpeg', 'webp');
+        if ((!in_array($upload_file['extension'], $accepted_types))){
+            throw new Exception('wrong file type!');
+        }
+    
+        $image_path = '../images/';
+    
+        $generated_name      = md5($upload_file['filename'] . time());
+        $generated_filename  = $generated_name . '.' . $upload_file['extension'];
+        $targetpath          = $image_path . $generated_filename;
+    
+        if ( (!move_uploaded_file($cover['tmp_name'], $targetpath))){
+            throw new Exception('Failed to move uploaded file, check permission!');
+        }
+    
+    
+
+        $insert_detail_query  = 'INSERT INTO  tbl_content (content_header, content_intro, content_picture, video_source)';
+        $insert_detail_query .= ' VALUE(:content_header, :content_intro, :content_picture, :content_video)';
+    
+        $insert_detail = $pdo->prepare($insert_detail_query);
+        $insert_detail_result = $insert_detail ->execute(
+            array(
+                ':content_cover'           => $generated_filename,
+                ':content_header'          => $contentinfo['header'],
+                ':content_intro'           => $contentinfo['introduce'],
+                ':content_cover2'          => $generated_filename2,
+                ':content_cover3'          => $generated_filename3,
+                ':detail_supplement'      => $detailinfo['supplement'],
+                )
+            );
+    
+            $last_uploaded_id = $pdo->lastInsertId();
+            if ($insert_detail_result && !empty($last_uploaded_id)) {
+                $update_category_query = 'INSERT INTO tbl_detail_category(detail_id, category_id) VALUES(:detail_id, :category_id)';
+                $update_category       = $pdo->prepare($update_category_query);
+    
+                $update_category_result = $update_category ->execute(
+                    array(
+                        ':detail_id'    => $last_uploaded_id,
+                        ':category_id'  => $detailinfo['category'],
+                        )
+                    );   
+            }
+
+        redirect_to('admin_content_detail.php');
+        
+        }catch(Exception $e){
+            $error = $e->getMessage();
+            return $error;
+        }
+}
