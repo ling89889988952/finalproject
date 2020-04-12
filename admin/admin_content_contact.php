@@ -27,6 +27,7 @@ if(isset($_POST['submit'])){
     <title>CMS - Edit Contact</title>
 </head>
 <body>
+<a href="admin_content.php">Back to Content Mangement </a><br>
     <h2 style="text-align:center">Edit Contact Information</h2>
     <?php echo!empty($message)? $message:'';?>
     <form action='admin_content_contact.php' method='post'>

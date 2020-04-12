@@ -1,6 +1,6 @@
 <?php
 
-// get the detail content
+// get the detail, mainpage content
 function getAllbyCategory($args){
     $pdo = Database::getInstance()->getConnection();
 
@@ -48,6 +48,7 @@ function deleteDeatil($detail_id){
         }
     
 }
+
 
 // add the detail content
 function addDetail($detailinfo){
@@ -246,3 +247,53 @@ function editDetailImage($image,$image2,$image3,$detail_edit,$detail_id){
         }
 
 }
+
+// delete the main content 
+function deleteContent($main_id){
+    $pdo = Database::getInstance()->getConnection();
+    $delete = 'DELETE FROM tbl_content WHERE $main_id = :main_id';
+    $deleteDetail = $pdo->prepare($delete);
+    $delete_Detail_Result = $deleteDetail ->execute(
+                        array(
+                            ':main_id' =>$main_id,
+                        )
+                        );
+        
+        if($delete_Detail_Result && $deleteDetail->rowCount() > 0){
+            $delete_category = 'DELETE FROM tbl_main_category WHERE main_id = :main_id';
+            $delete_category_set = $pdo->prepare($delete_category);
+            $delete_category_result  = $delete_category_set -> execute(
+                array(
+                    ':main_id' =>$main_id,
+                )
+                );
+
+                if($delete_category_result){
+
+                redirect_to('admin_content.php');
+                }else{
+                    return 'The category can not be delete';
+                }
+        }else{
+            return ' ERROE';
+        }
+}
+
+// show detail content in edit page
+// function showDetail($detail_id){
+//     $pdo = Database::getInstance()->getConnection();
+//     $querySingle = "SELECT * FROM tbl_detail p, tbl_category c, tbl_detail_category h WHERE p.detail_id = h.detail_id AND c.category_id = h.category_id AND p.detail_id = $detail_id";
+//     $get_detail_result = $pdo->query($querySingle);
+//     // var_dump($get_product_result);
+//     //  exit;            
+
+//     if($get_detail_result ){
+        
+//         return $get_detail_result;
+        
+
+//     }else{
+//         return  "There have some problem";
+    
+//     }
+// }
