@@ -12,10 +12,9 @@ export default {
        
         <homepage></homepage>
 
-        <intro></intro>
         <discrimination></discrimination>
         <discrimPrevent></discrimPrevent>
-        <prevent></prevent>
+
         <div id="contact">
             <div id="contactTitle">
                 <div id="contactSub">

@@ -40,5 +40,26 @@ export default {
     </div>
     </div>
     `,
+    created: function ()  {
+        this.fetchContent();
+    },
+
+    data () {
+        return {
+            subscription: 'Want get more knowledge about HIV?',
+            contactList: []
+        }
+    },
+
+    methods:{
+        fetchContect(){
+            let url = './admin/admin_content.php?=true';
+
+            fetch(url)
+            .then(res  => res.json())
+            .then(data => this.contactList = data)
+            .catch((error) => console.error(error))
+        }
+    },
 
 }
