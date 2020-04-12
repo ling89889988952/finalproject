@@ -17,27 +17,30 @@ header {
 #mainHeader {
     display: flex;
     flex-direction: row;
-    width: 84%;
-    margin: 0 8% 0 8%;
-    border-bottom: solid 3px #000;
+    width: 100%;
+    // margin: 0 8% 0 8%;
+    border-bottom: solid 3px #e9b600;
     background: #e9b600;
 }
 
 #logo {
-    width: 20%;
+    width: 100%;
     text-align: center;
     img {
         padding-top: 5px;
-        width: 30%;
+        width: 20%;
     }
 }
 
 #mainNav {
+    display: none;
     width: 80%;
+    margin-top: 2%;
     ul{
         display: flex;
         flex-direction: row;
-        width: 100%;
+        margin: 0 auto;
+        padding-left: 0 ;
         li {
             list-style: none;
             width: 20%;
@@ -50,10 +53,14 @@ header {
                 font-style: normal;
                 text-align: center;
                 transition: .5s ease;
+                padding-bottom: 10px;
+                font-size: 1em;
             }
         }
+
         a:hover {
             color: #fff;
+            border-bottom: 5px solid #000;
         }
 
     }
@@ -63,44 +70,213 @@ header {
     height: 17.55%;
 }
 
-.textInfo {
-        width: 60%;
-        height: 80%;
-        position:absolute;
-	    top:0;
-	    bottom:0;
-	    left:0;
-	    right:0;
-        margin:auto;
-        font-family: superclarendon, serif;
-        font-style: normal;
-        overflow: auto;
-        
-    h2 {
-        text-align: center;
-        line-height: 200%;
-        font-weight: 600;
-        font-size: 2em;
-    }
+// burger menu
 
-    p {
-        font-size: 1.5em;
-        line-height: 150%;
-        font-weight: 400;
-    }
+:root {
+    --primary-color: #e9b600;
+    --overlay-color: #e9b600;
+    --menu-speed: 0.75s;
+  }
+  
+//   * {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+//   }
+  
+  
+  
+  .showcase {
+    background: var(--primary-color);
+    color: #fff;
+    height: 100vh;
+    position: relative;
+  }
 
-    .readmore {
-        text-align: center;
-        margin-top: 30%;
-        a {
-            padding: 2% 8% 2% 8%;
-            border: solid 2px #e9b600;
-            text-decoration: none;
-            color: #e9b600;
-            font-weight: 400;
+  
+  .btn {
+    display: inline-block;
+    border: none;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    margin-top: 1rem;
+    transition: opacity 1s ease-in-out;
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    opacity: 1;
+  }
+  
+/* MENU STYLES */
+.menu-wrap {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    a {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    }
+  }
+  
+  .menu-wrap .toggler {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+  }
+  
+  .menu-wrap .hamburger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 60px;
+    height: 40px;
+    padding: 1rem;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Hamburger Line */
+  .menu-wrap .hamburger > div {
+    position: relative;
+    flex: none;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+  }
+  
+  /* Hamburger Lines - Top & Bottom */
+  .menu-wrap .hamburger > div::before,
+  .menu-wrap .hamburger > div::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    width: 100%;
+    height: 2px;
+    background: inherit;
+  }
+  
+  /* Moves Line Down */
+  .menu-wrap .hamburger > div::after {
+    top: 10px;
+  }
+  
+  /* Toggler Animation */
+  .menu-wrap .toggler:checked + .hamburger > div {
+    transform: rotate(135deg);
+  }
+  
+  /* Turns Lines Into X */
+  .menu-wrap .toggler:checked + .hamburger > div:before,
+  .menu-wrap .toggler:checked + .hamburger > div:after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  
+  /* Rotate On Hover When Checked */
+  .menu-wrap .toggler:checked:hover + .hamburger > div {
+    transform: rotate(225deg);
+  }
+  
+  /* Show Menu */
+  .menu-wrap .toggler:checked ~ .menu {
+    visibility: visible;
+  }
+  
+  .menu-wrap .toggler:checked ~ .menu > div {
+    transform: scale(1);
+    transition-duration: var(--menu-speed);
+  }
+  
+  .menu-wrap .toggler:checked ~ .menu > div > div {
+    opacity: 1;
+    transition:  opacity 0.4s ease 0.4s;
+  }
+  
+  .menu-wrap .menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .menu-wrap .menu > div {
+    background: var(--overlay-color);
+    // border-radius: 50%;
+    width: 200vw;
+    height: 200vw;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    opacity: .8;
+    transition: all 0.4s ease;
+  }
+  
+  .menu-wrap .menu > div > div {
+    text-align: center;
+    max-width: 90vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .menu-wrap .menu > div > div > ul > li {
+    list-style: none;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .menu-wrap .menu > div > div > ul > li > a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.4s ease;
+  }
+
+
+
+
+@media (min-width: 900px) {
+    #logo {
+        width: 20%;
+        img {
+            width: 50%;
         }
     }
+    
+    #mainNav {
+        display: block;
+    
+    }
+
+    .menu-wrap {
+        display: none;
+    }
 }
+
 // import
 @import '_var.scss';
 @import 'modules/_index.scss';
@@ -109,4 +285,6 @@ header {
 @import 'modules/_prevention.scss';
 @import 'modules/_contact.scss';
 @import 'modules/_readmore.scss';
-@import 'modules/cms.scss';
+@import 'modules/_cms.scss';
+@import 'modules/responsive'
+

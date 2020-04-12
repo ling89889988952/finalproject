@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="height:570%;">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +17,23 @@
         <div id="logo">
             <img src="images/logo.png" alt="Logo">
         </div>
+        <div class="menu-wrap">
+            <input type="checkbox" class="toggler">
+            <div class="hamburger"><div></div></div>
+            <div class="menu">
+              <div>
+                <div>
+                  <ul>
+                    <li><a href="#index">HOME</a></li>
+                <li><a href="#HIV">HIV/AIDS</li>
+                <li><a href="#discrimination">0 DISCRIMINATION</a></li>
+                <li><a href="#prevention">PREVENTION</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         <nav id="mainNav">
             <ul>
                 <li><a href="#index">HOME</a></li>
@@ -30,7 +47,7 @@
     </div>
     </header>
 
-    <router-view> </router-view>
+    <router-view></router-view>
     </main>
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
