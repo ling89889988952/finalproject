@@ -56,9 +56,9 @@ function getContact(){
     }
 }
 
-function getAllMember(){
+function getAll($tbl){
     $pdo = Database::getInstance()->getConnection();
-    $queryAll = ' SELECT * FROM tbl_member';
+    $queryAll = ' SELECT * FROM '.$tbl;
     $results = $pdo->query($queryAll);
 
     if($results){

@@ -45,7 +45,7 @@ export default {
 
     methods:{
         fetchContact(){
-            let url = './admin/admin_contact.php?contact=true';
+            let url = './admin/contact.php?contact=true';
 
             fetch(url)
             .then(res  => res.json())

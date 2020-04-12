@@ -4,7 +4,7 @@ export default {
     template:`<div :class=" details.page ">
     <div class="detail-header">
         <div class="detail-header-image">
-            <img :src="'images/' + details.header_image + '.png'"
+            <img :src="'images/' + details.header_image"
             :alt="details.header_image">   
         </div>
         <div class="detail-header-title">

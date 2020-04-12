@@ -9,15 +9,12 @@ if(is_string($user)){
     $message = $user;
 }
 
-date_default_timezone_set("America/Toronto");
-$login_date = date("Y-m-d H:i:s");
 
 if(isset($_POST['submit'])){
     $username   = trim($_POST['username']);
     $password   = trim($_POST['password']);
     $email      = trim($_POST['email']);
-
-    $message    = editUser($id,$username,$password,$email,$login_date);
+    $message    = editUser($id,$username,$password,$email);
 }
 
 ?>

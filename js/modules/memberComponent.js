@@ -1,7 +1,7 @@
 export default {
     template:`
     <div id="contactForm">
-        <form action="./admin/sign-up.php" method="post" id="form">
+        <form id="form">
             <h2>Subscription</h2>
             <p> {{ message }}</p>
             <div class="others">
@@ -33,7 +33,7 @@ export default {
             <input id="message" v-model="input.message" type="text" name="message" placeholder="Message">
             </div>
 
-            <button v-on:click.prevent="sign()" name="submit" type="submit">Submit</button>
+            <button  @click.prevent="sign()" name="submit" type="submit">Submit</button>
             </form>
     </div>
     `,
@@ -54,20 +54,28 @@ export default {
     methods:{
         sign(){
             if(this.input.name != "" && this.input.gender != "" && this.input.age != "" && this.input.email != "" && this.input.message != "" ){
-                var d = new Date();
-                var now = d.getTimezoneOffset();
+                let url = "./admin/sign_up.php?add_member=true";
 
-                let formData = new FormData();
-                formData.append('name',this.input.name);
-                formData.append('gender',this.input.gender);
-                formData.append('age',this.input.age);
-                formData.append('email',this.input.email);
-                formData.append('message',this.input.message);
-                formData.append('date',now);
+                memberData = new FormData(document.querySelector("#form"));
+
+                fetch(url,{
+                    method:'POST',
+                    body: memberData
+                })
+                .then(res  => res.json())
+                .then(data => {
+                    if (data.result == true){
+                        alert('thanks for register!')
+                    }else{
+                        alert(`couldn' t add useer: ${data.result}`)
+                    }
+                })
+                .catch((err) => console.error(err)
+
+    
+                );
  
-                // let url = './admin/sign_up.php';
-
-               
+              
             }else{
                return this.message = "Please fill out the required field! ";
             }
