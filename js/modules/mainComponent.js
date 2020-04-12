@@ -1,9 +1,10 @@
 import homeComponent    from './homeComponent.js';
 import introComponent   from './introComponent.js';
-import discriminationComponent   from './discriminationComponent.js';
-import preventionComponent   from './preventionComponent.js';
+// import discriminationComponent   from './discriminationComponent.js';
+// import preventionComponent   from './preventionComponent.js';
 import ContactComponent from './contactComponent.js';
 import MemberComponent  from './memberComponent.js';
+import discrimPreventComponent from '/discrimPrevent.js';
 
 export default {
     template: `
@@ -13,6 +14,7 @@ export default {
 
         <intro></intro>
         <discrimination></discrimination>
+        <discrimPrevent></discrimPrevent>
         <prevent></prevent>
         <div id="contact">
             <div id="contactTitle">
@@ -59,7 +61,8 @@ export default {
             contact:ContactComponent,
             member:MemberComponent ,
             intro:introComponent,
-            discrimination:discriminationComponent,
-            prevent:preventionComponent,
+            // discrimination:discriminationComponent,
+            // prevent:preventionComponent,
+            discrimPrevent:discrimPreventComponent,
         }
 }
