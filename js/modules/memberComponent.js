@@ -1,7 +1,7 @@
 export default {
     template:`
     <div id="contactForm">
-        <form id="form">
+        <form @submit.prevent="addUser">
             <h2>Subscription</h2>
             <p> {{ message }}</p>
             <div class="others">
@@ -33,7 +33,7 @@ export default {
             <input id="message" v-model="input.message" type="text" name="message" placeholder="Message">
             </div>
 
-            <button  @click.prevent="sign()" name="submit" type="submit">Submit</button>
+            <button name="submit" type="submit">Submit</button>
             </form>
     </div>
     `,
@@ -52,19 +52,17 @@ export default {
     },
 
     methods:{
-        sign(){
+        addUser(){
             if(this.input.name != "" && this.input.gender != "" && this.input.age != "" && this.input.email != "" && this.input.message != "" ){
                 let url = "./admin/sign_up.php?add_member=true";
-
-                memberData = new FormData(document.querySelector("#form"));
-
+                let memberData = new FormData(document.querySelector("form"));
                 fetch(url,{
                     method:'POST',
                     body: memberData
                 })
                 .then(res  => res.json())
                 .then(data => {
-                    if (data.result == true){
+                    if (data.result){
                         alert('thanks for register!')
                     }else{
                         alert(`couldn' t add useer: ${data.result}`)
