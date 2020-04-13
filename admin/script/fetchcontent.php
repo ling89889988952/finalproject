@@ -88,7 +88,7 @@ function getVideoByFilter($args){
 }
 
 
-function getContentByFilte($args){
+function getContentByFilter($args){
     $pdo = Database::getInstance()->getConnection();
 
     $filterQuery = 'SELECT * FROM '.$args['tbl1'].' AS t, '.$args['tbl2'].' AS t2, '.$args['tbl3']. ' AS t3 ';
@@ -103,4 +103,21 @@ function getContentByFilte($args){
     }else{
         return ' There was some problems';
     }
+}
+
+function getDetailByFilter($args){
+    $pdo = Database::getInstance()->getConnection();
+    $filterQuery = 'SELECT * FROM '.$args['tbl1'].' AS t, '.$args['tbl2'].' AS t2, '.$args['tbl3']. ' AS t3 ';
+    $filterQuery .= ' WHERE t.'.$args['col'].' = t3.'.$args['col'];
+    $filterQuery .= ' AND t2.'.$args['col2'].' = t3.'.$args['col2'];
+    $filterQuery .= ' AND t2.'.$args['col3'].' = "'.$args['category'].'"';
+
+    $results = $pdo->query($filterQuery);
+
+    if($results){
+        return $results->fetchALL(PDO::FETCH_ASSOC);
+    }else{
+        return ' There was some problems';
+    }
+
 }
