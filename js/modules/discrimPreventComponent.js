@@ -11,7 +11,7 @@ export default {
                 <h2 v-html="descrimDetails.content_header"></h2>
                 <p v-html="descrimDetails.content_intro"></p>
 
-                <div class="readmore"><a href="./readmore.php">Read more...</a></div>
+                <div class="readmore"><a @click="descrimination">Read more...</a></div>
 
             </div>
         </div>
@@ -24,7 +24,7 @@ export default {
             <h2 v-html="preventDetails.content_header"></h2>
             <p v-html="preventDetails.content_intro"></p>
 
-                <div class="readmore"><a href="./readmore.php">Read more...</a></div>
+                <div class="readmore"><a @click="prevention">Read more...</a></div>
 
             </div>
         </div>
@@ -48,6 +48,16 @@ export default {
     },
         
     methods:{
+        descrimination: function(){
+            this.$router.replace({
+                name: "descrimination"});
+            },
+
+        prevention: function(){
+            this.$router.replace({
+                name: "prevention"});
+            },
+
         discrimContent(){
             let url = `./admin/content.php?filter=discrimination`;
             fetch(url)
