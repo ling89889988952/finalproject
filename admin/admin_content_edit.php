@@ -11,6 +11,31 @@ $getCategory = getAll($category_table);
 $show_content = showContent($_GET['id']);
 $contentinfo = $show_content->fetch(PDO::FETCH_ASSOC);
 
+if(isset($_POST['submit'])){
+    $image  = $_FILES['cover'];
+
+    $content_detail =  array(
+        'header'       => trim($_POST['header']),
+        'introduce'    => trim($_POST['introduce']),
+        'category'     => trim($_POST['cateList']),
+    );
+    
+    $content_id = $_GET['id'];
+
+    if($image['error'] == 4){
+        $content_image = $contentinfo['content_picture'];
+        $result  = editContentText($content_image,$content_detail,$content_id);
+
+    }else{
+        $content_image = $_FILES['cover'];
+        $result  = editAllContent($content_image,$content_detail,$content_id);
+    }
+
+    $message = $result;
+    
+    
+}
+
 
 
 ?>
@@ -24,36 +49,23 @@ $contentinfo = $show_content->fetch(PDO::FETCH_ASSOC);
     <title>CMS - Edit Detail</title>
 </head>
 <body>
-    <a href="admin_content_detail.php">Back to Content Mangement </a><br>
+    <a href="admin_content_more.php">Back to Discrimination & HIV Prevention Mangement </a><br>
     <h2>Edit Detail</h2>
     <p><strong>Please modify all the pictures if you want to modify the image, in order to keep a unified style.</strong></p>
     <?php echo !empty($message)? $message:'';?>
-        <form action="admin_editdetailcontent.php?id=<?php echo $contentinfo['detail_id'];?>" method="post" enctype="multipart/form-data">
+        <form action="admin_content_edit.php?id=<?php echo $contentinfo['content_id'];?>" method="post" enctype="multipart/form-data">
             <lable>ID:</label>
-            <input type="text" name="id" value="<?php echo $contentinfo['detail_id'];?>" readonly><br><br>
+            <input type="text" name="id" value="<?php echo $contentinfo['content_id'];?>" readonly><br><br>
 
-            <img src="../images/<?php echo $contentinfo['header_image'];?>" alt="header image" width="10%"><br>
-            <label>Change Header Image: </label>
+            <img src="../images/<?php echo $contentinfo['content_picture'];?>" alt="content picture" width="10%"><br>
+            <label>Change Content Image: </label>
             <input type="file" name="cover" value=""><br><br>
 
             <label>Header: </label>
-            <textarea type="text" name="header"><?php echo $contentinfo ['header'];?></textarea><br><br>
+            <textarea type="text" name="header"><?php echo $contentinfo ['content_header'];?></textarea><br><br>
 
             <label>Introduce: </label>
-            <textarea type="text" name="introduce"><?php echo $contentinfo ['intro'];?></textarea><br><br>
-
-            <img src="../images/<?php echo $contentinfo['image'];?>" alt="introduce image" width="10%"><br>
-            <label>Change Introduce Image: </label>
-            <input type="file" name="cover2" value=""><br><br>
-        
-            <label>Supplement: </label>
-            <textarea type="text" name="supplement"><?php echo $contentinfo ['sub_intro'];?></textarea><br><br>
-
-
-            <img src="../images/<?php echo $contentinfo['sub_image'];?>" alt=" Supplement-Image" width="10%"><br>
-            <label>Change  Supplement Image: </label>
-            <input type="file" name="cover3" value=""><br><br>
-
+            <textarea type="text" name="introduce"><?php echo $contentinfo ['content_intro'];?></textarea><br><br>
 
             <label>Detail Category:</label><br>
             <select name="cateList">

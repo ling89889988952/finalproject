@@ -10,10 +10,15 @@ if(!$getHome ){
 }
 
 if(isset($_POST['submit'])){
-    $username   = trim($_POST['username']);
-    $password   = trim($_POST['password']);
-    $email      = trim($_POST['email']);
-    $message    = editUser($id,$username,$password,$email);
+    $header     = trim($_POST['header']);
+    $sub        = trim($_POST['sub_header']);
+    $introduce  = trim($_POST['introduce']);
+
+    if(!empty($header) && !empty($sub) && !empty($introduce)){
+        $message    = editHomePage($header,$sub,$introduce);
+    }else{
+        $message = 'Please fill all blank';
+    }
 }
 
 ?>
@@ -24,30 +29,27 @@ if(isset($_POST['submit'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
-    <title>CMS - Edit Home</title>
+    <title>CMS - Edit Home Page</title>
 </head>
 <body>
-<a href="admin_content.php">Back to Content Mangement </a><br>
+    <a href="admin_content.php">Back to Content Mangement </a><br>
     <h2 style="text-align:center">Edit Home Information</h2>
     <?php echo!empty($message)? $message:'';?>
+    <br>
     <form action='admin_content_home.php' method='post'>
     <?php while($homeinfo = $getHome ->fetch(PDO::FETCH_ASSOC)):?>
         <label>Header</label><br>
-        <input  type='text' name='header' value='<?php echo $homeinfo['home_header'];?>'><br>
+        <textarea  type='text' name='header'><?php echo $homeinfo['home_header'];?></textarea><br>
 
         <label>Sub_Header</label><br>
-        <input  type='text' name='sub_header' value='<?php echo $homeinfo['home_subheader'];?>'><br>
+        <textarea  type='text' name='sub_header'><?php echo $homeinfo['home_subheader'];?></textarea><br>
 
         <label>Introduce:</label><br>
         <textarea type='text' name='introduce'><?php echo $homeinfo['home_introduce'];?></textarea><br>
 
-        <label>Video</label><br>
-        <div>
-        <video src="../video/<?php echo $homeinfo['home_video'];?> " controls width='320px' height='200px'>
-        </div>
-        <br><br>
+
     <?php endwhile;?>
-    <button type='submit' name='submit'>Update Information</button>
+    <button type='submit' name='submit'>Update Home Information</button>
         
 </body>
 </html>
