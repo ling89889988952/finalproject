@@ -10,7 +10,7 @@ export default {
                 <p v-html="introDetails.hiv_detail"></p>
 
 
-                <div class="readmore"><a href="./readmore.php">Read more...</a></div>
+                <div class="readmore"><a @click="hiv">Read more...</a></div>
 
             </div>
         </div>
@@ -22,7 +22,7 @@ export default {
                     </div>
                 </div>
                 <div id="hivPic">
-                    <img v-if="true" src="images/virus.svg" alt="virus">
+                    <img v-if="true" :src="'images/' + introDetails.hiv_picture" alt="virus">
                     <video v-if="false" controls>
                 <source :src="'video/'+ videoDetail.video_source" :key="videoDetail.video_source" type="video/mp4" autoplay control>
             </video>
@@ -31,7 +31,7 @@ export default {
             </div>
             <div id="aids">
                 <div id="aidsPic">
-                    <img src="images/dna.svg" alt="DNA">
+                    <img :src="'images/' + introDetails.aid_picture" alt="DNA">
                 </div>
                 <div id="aidsIntro" class="intro">
                     <div>
@@ -63,6 +63,11 @@ export default {
     },
         
     methods:{
+        hiv: function(){
+        this.$router.replace({
+            name: "hiv"});
+        },
+
         introContent(){
             let url = `./admin/home.php?page=hiv`;
             fetch(url)
