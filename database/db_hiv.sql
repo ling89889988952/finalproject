@@ -2,10 +2,10 @@
 -- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Apr 12, 2020 at 04:28 PM
+-- Host: localhost:8889
+-- Generation Time: Apr 13, 2020 at 03:39 AM
 -- Server version: 5.7.26
--- PHP Version: 7.3.7
+-- PHP Version: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -108,8 +108,8 @@ CREATE TABLE `tbl_content` (
 --
 
 INSERT INTO `tbl_content` (`content_id`, `content_header`, `content_intro`, `content_picture`) VALUES
-(1, 'Ending HIV stigma<br>and discrimination<br>', '<br>Discrimination is more scary than a virus<br><br>\r\n                    There are three ways to spread AIDS: blood, mother and child, and sex. Then in addition to these three ways, general hugs, handshake, and courtesy kissing will not be transmitted, so close contact with AIDS patients will not cause HIV infection.', 'hug.png'),
-(2, 'HIV prevention<br>', '<br>Safer sex, Avoid sharing needles or other drug paraphernalia.<br><br><br>\r\n                    Although many researchers are working to develop one, there’s currently no vaccine available to prevent the transmission of HIV. However, taking certain steps can help prevent the spread of HIV.\r\n                    <br>', 'condom.png');
+(1, 'Ending HIV stigma<br>and discrimination', 'Discrimination is more scary than a virus<br><br>\r\n                    There are three ways to spread AIDS: blood, mother and child, and sex. Then in addition to these three ways, general hugs, handshake, and courtesy kissing will not be transmitted, so close contact with AIDS patients will not cause HIV infection.', 'hug.png'),
+(2, 'HIV prevention<br>', 'Safer sex, Avoid sharing needles or other drug paraphernalia.<br><br>\r\n                    Although many researchers are working to develop one, there’s currently no vaccine available to prevent the transmission of HIV. However, taking certain steps can help prevent the spread of HIV.\r\n                    <br>', 'condom.png');
 
 -- --------------------------------------------------------
 
@@ -198,7 +198,7 @@ CREATE TABLE `tbl_hiv` (
 --
 
 INSERT INTO `tbl_hiv` (`id`, `hiv_header`, `hiv_detail`, `hiv_intro`, `hiv_picture`, `aid_intro`, `aid_picture`) VALUES
-(1, 'What is HIV/AIDS?<br>What is different?<br>', '<br>HIV is a virus that damages the immune system.<br><br><br>\r\n                    To develop AIDS, a person has to have contracted HIV. But having HIV doesn’t necessarily mean that someone will develop AIDS.\r\n                    <br>', 'HIV (human immunodeficiency virus) is a virus that attacks cells that help the body fight infection, making a person more vulnerable to other \r\ninfections and diseases.', 'virus.png', 'AIDS is the late stage of HIV \r\ninfection that occurs when the body’s immune system is badly \r\ndamaged because of the virus.', 'system.png');
+(1, 'What is HIV/AIDS?<br>What is different?<br>', 'HIV is a virus that damages the immune system.<br><br>\r\n                    To develop AIDS, a person has to have contracted HIV. But having HIV doesn’t necessarily mean that someone will develop AIDS.\r\n                    <br>', 'HIV (human immunodeficiency virus) is a virus that attacks cells that help the body fight infection, making a person more vulnerable to other \r\ninfections and diseases.', 'virus.png', 'AIDS is the late stage of HIV \r\ninfection that occurs when the body’s immune system is badly \r\ndamaged because of the virus.', 'system.png');
 
 -- --------------------------------------------------------
 
