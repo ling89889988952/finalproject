@@ -18,13 +18,13 @@ html {
 .subContainer {
     // height: 17.55%;
     height: 100vh;
-    min-height: 600px;
+    min-height: 900px;
 }
 
 #combineContainer {
     // height: 35.1%;
     height: 200vh;
-    min-height: 1200px;
+    min-height: 1800px;
 }
 
 .combineSub {
@@ -73,7 +73,6 @@ p {
 
 @media (min-width:900px) {
     .textInfo {
-        min-height: 450px;
         h2 {
             font-size: 1.5em;
         }
@@ -83,6 +82,13 @@ p {
         .readmore {
             margin-top: 20%;
         }
+    }
+    .subContainer {
+        min-height: 600px;
+    }
+
+    #combineContainer {
+        min-height: 1200px;
     }
 
 }

@@ -5,7 +5,7 @@
 
 #contactTitle {
     height: 100vh;
-    min-height: 800px;
+    min-height: 900px;
     display: flex;
     flex-direction: column;
     overflow: auto;
@@ -162,11 +162,12 @@ button {
 
 #contactDetail {
     height:50vh;
-    min-height: 300px;
+    min-height: 600px;
     background: #363636;
     position: relative;
     h2 {
         margin: auto;
+        padding-bottom: 5%;
         font-size: 1.2em;
         font-family: superclarendon, serif;
             font-style: normal;
@@ -180,7 +181,7 @@ button {
 #contactInfo {
     display: flex;
     flex-direction: column;
-    margin-top: 5%;
+    // margin-top: 5%;
     vertical-align: top;
 }
 
@@ -217,6 +218,20 @@ button {
     }
 }
 
+
+#snapchat {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 20%;
+    height: 40px;
+    padding: 0 0 20px 0;
+    text-align: center;
+    img {
+        width: 40px;
+    }
+
+}
 @media (min-width: 900px) {
     #contactTitle {
         flex-direction: row;
@@ -262,7 +277,7 @@ button {
 
     #contactDetail {
         height: 50vh;
-        min-height: 300px;
+        min-height: 600px;
         h2 {
             text-align: left;
             padding-top: 2%;
@@ -287,6 +302,10 @@ button {
             font-size: 2em;
             margin-bottom: 0;
         }
+    }
+
+    #contactDetail {
+        min-width: 500px;
     }
     #contactInfo {
         .contactInfo {
