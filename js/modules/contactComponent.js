@@ -30,6 +30,7 @@ export default {
             <p>Copyright © {{ year }}</p>
         </div>
         <div id="snapchat">
+        <a href=""><img src="images/snapchat.svg"></a>
         </div>
     </div>
         `        
