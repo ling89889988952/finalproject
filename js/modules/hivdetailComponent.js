@@ -1,13 +1,17 @@
 export default {
     // props: ['details'],
-    template:`<div>
+    template:`<div class="detail-body">
     <div class="detail-header">
         <div class="detail-header-image">
-            <img :src="'images/' + details.header_image"
-            :alt="details.header_image">   
+        <!-- <img :src="'images/' + details.header_image"
+            :alt="details.header_image">   -->
+            <img src="images/search.png">
         </div>
         <div class="detail-header-title">
-            <h2 v-html="details.header"> {{ details.header }}</h2>
+            <!-- <h2 v-html="details.header"> {{ details.header }}</h2> -->
+            <h2>What is HIV/AIDS?
+            <br>
+            What is Connection?</h2>
         </div>
     </div>
     <div class="detail-content">

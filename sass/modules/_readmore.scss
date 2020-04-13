@@ -1,102 +1,17 @@
-/* content */
-#readmorePage {
-    height: auto;
-}
-#readmoreBody {
-    width:100%;
-    
-    background:#e9b600;
-    padding-top: 20px;
-}
-
-#readmoreTitle {
-    text-align: center;
-    font-size: 2em;
-    line-height: 200px;
-    position:relative;
-}
-
-#titlePic {
-    position: absolute;
-    margin-top:0;
-    top: 0;
-    left: 0;
-    bottom: 0;
-
-}
-
-#img1 {
-    width:40%;
-    margin-top: 0px;
-}
-
-#readmoreContent {
+.detail-body {
     background: #363636;
-    width: 100%;
-    position: relative;
-}
-
-#drugs {
-    position: absolute;
-    left: 0;
-}
-
-#img2 {
-    margin-top: 50%;
-    width: 50%;
-}
-#lady {
-    position: absolute;
-    right:0;
+    min-height: 100vh;
 }
 
 
-.readmoreContent {
-    padding: 20px 0 20px 0;
-    width: 60%;
-    margin: 0 auto;
-    
+.detail-header-image {
+    width: 20%;
+    img {
+        width: 50%;
+    }
 }
 
-.readmoreContent h3 {
-    color: #e9b600;
-    letter-spacing: .08em;
-}
-
-.readmoreContent p {
-    color: #fff;
-    letter-spacing: .05em;
-    line-height: 150%;
-}
-
-/* footer */
-#readmoreFooter {
-    width: 100%;
-    background: #363636;
-    position: relative;
-}
-#readmoreFooter h2 {
-    color: #e9b600;
-    margin-top: 2%;
-    margin-left: 5%;
-}
-#boy {
-    position:absolute;
-    right:0;
-    bottom: 0;
-}
-
-#img4{
-    width:60%;
-    float: right;
-}
-
-
-#copyright1 {
-    width: 100%;
-    padding-top: 50px;
-}
-#copyright1 p{
+.detail-header-title {
     color: #fff;
     text-align: center;
 }
