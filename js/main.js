@@ -1,6 +1,8 @@
 import mainComponent from "./modules/mainComponent.js";
 import detailComponent from "./modules/alldetailComponent.js";
 
+    
+
 (() =>{
 
     let router  = new VueRouter ({
